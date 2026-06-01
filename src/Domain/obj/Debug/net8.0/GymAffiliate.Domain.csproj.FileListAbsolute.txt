@@ -1,0 +1,16 @@
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\bin\Debug\net8.0\GymAffiliate.Domain.deps.json
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\bin\Debug\net8.0\GymAffiliate.Domain.dll
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\bin\Debug\net8.0\GymAffiliate.Domain.pdb
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\bin\Debug\net8.0\GymAffiliate.Shared.dll
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\bin\Debug\net8.0\GymAffiliate.Shared.pdb
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffiliate.Domain.csproj.AssemblyReference.cache
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffiliate.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffiliate.Domain.AssemblyInfoInputs.cache
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffiliate.Domain.AssemblyInfo.cs
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffiliate.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffiliate.Domain.sourcelink.json
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffil.28ACC08B.Up2Date
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffiliate.Domain.dll
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\refint\GymAffiliate.Domain.dll
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\GymAffiliate.Domain.pdb
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Domain\obj\Debug\net8.0\ref\GymAffiliate.Domain.dll

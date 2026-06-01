@@ -1,0 +1,270 @@
+{
+  "info": {
+    "name": "GymAffiliate API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "gymaffiliate-collection-v1"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "https://localhost:7001", "type": "string" },
+    { "key": "affiliateId", "value": "1", "type": "string" },
+    { "key": "membershipId", "value": "1", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/health" }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Afiliados",
+      "item": [
+        {
+          "name": "Crear afiliado",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/afiliados" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documentNumber\": \"MX12345678\",\n  \"documentType\": \"DNI\",\n  \"firstName\": \"Carlos\",\n  \"lastName\": \"González Pérez\",\n  \"birthDate\": \"1990-06-15\",\n  \"email\": \"carlos.gonzalez@test.com\",\n  \"phone\": \"55-1234-5678\",\n  \"address\": \"Av. Insurgentes 100, CDMX\",\n  \"baseBranchId\": 1\n}"
+            }
+          }
+        },
+        {
+          "name": "Obtener afiliado por ID",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/afiliados/{{affiliateId}}" }
+          }
+        },
+        {
+          "name": "Listar afiliados",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/afiliados?pageNumber=1&pageSize=10",
+              "query": [
+                { "key": "filterSearch", "value": "", "disabled": true },
+                { "key": "filterStatus", "value": "1", "disabled": true },
+                { "key": "filterBranchId", "value": "1", "disabled": true },
+                { "key": "pageNumber", "value": "1" },
+                { "key": "pageSize", "value": "10" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Actualizar afiliado",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/afiliados/{{affiliateId}}" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"phone\": \"55-9999-0000\",\n  \"address\": \"Nueva dirección 200\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Eliminar afiliado (soft delete)",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/afiliados/{{affiliateId}}?notes=Baja voluntaria",
+              "query": [{ "key": "notes", "value": "Baja voluntaria" }]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Membresías",
+      "item": [
+        {
+          "name": "Asignar membresía básica",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/membresias/asignar" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"affiliateId\": {{affiliateId}},\n  \"membershipTypeId\": 1,\n  \"branchId\": 1,\n  \"notes\": \"Primera membresía\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Asignar membresía premium",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/membresias/asignar" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"affiliateId\": {{affiliateId}},\n  \"membershipTypeId\": 3,\n  \"branchId\": null\n}"
+            }
+          }
+        },
+        {
+          "name": "Renovar membresía",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/membresias/renovar" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"affiliateId\": {{affiliateId}},\n  \"notes\": \"Renovación mensual\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Cambiar plan",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/membresias/cambiar-plan" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"affiliateId\": {{affiliateId}},\n  \"newMembershipTypeId\": 3\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pagos",
+      "item": [
+        {
+          "name": "Registrar pago en efectivo",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/pagos/registrar" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"affiliateId\": {{affiliateId}},\n  \"membershipId\": {{membershipId}},\n  \"paymentMethodId\": 1,\n  \"amount\": 600.00,\n  \"notes\": \"Pago mensual efectivo\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Registrar pago con tarjeta",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/pagos/registrar" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"affiliateId\": {{affiliateId}},\n  \"membershipId\": {{membershipId}},\n  \"paymentMethodId\": 2,\n  \"amount\": 1200.00,\n  \"referenceNumber\": \"TRF-20260428-001\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Historial de pagos del afiliado",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/pagos/historial/{{affiliateId}}",
+              "query": [
+                { "key": "from", "value": "2025-01-01", "disabled": true },
+                { "key": "to", "value": "2026-12-31", "disabled": true }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Acceso / CheckIn",
+      "item": [
+        {
+          "name": "Validar acceso afiliado",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/acceso/validar?affiliateId={{affiliateId}}",
+              "query": [{ "key": "affiliateId", "value": "{{affiliateId}}" }]
+            }
+          }
+        },
+        {
+          "name": "Registrar ingreso (check-in)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/acceso/registrar-ingreso" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"affiliateId\": {{affiliateId}},\n  \"branchId\": 1\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notificaciones",
+      "item": [
+        {
+          "name": "Membresías por vencer (3 días)",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/notificaciones/por-vencer?daysAhead=3",
+              "query": [{ "key": "daysAhead", "value": "3" }]
+            }
+          }
+        },
+        {
+          "name": "Generar alertas de vencimiento",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": { "raw": "{{baseUrl}}/api/notificaciones/enviar-alerta" },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"daysAhead\": 3,\n  \"channel\": \"EMAIL\"\n}"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Reportes",
+      "item": [
+        {
+          "name": "Reporte ingresos mes actual",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/reportes/ingresos" }
+          }
+        },
+        {
+          "name": "Reporte ingresos mes específico",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/reportes/ingresos?year=2025&month=4&branchId=1",
+              "query": [
+                { "key": "year", "value": "2025" },
+                { "key": "month", "value": "4" },
+                { "key": "branchId", "value": "1" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Distribución afiliados por estado",
+          "request": {
+            "method": "GET",
+            "url": { "raw": "{{baseUrl}}/api/reportes/afiliados-activos" }
+          }
+        }
+      ]
+    }
+  ]
+}

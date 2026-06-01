@@ -1,0 +1,765 @@
+[2026-05-11 08:30:38 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 08:30:38 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 08:30:38 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 08:30:38 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 08:30:38 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 08:30:38 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 08:30:38 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 08:30:39 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 08:30:39 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 723.2483ms
+[2026-05-11 08:30:39 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 08:30:39 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 08:30:39 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 21.1949ms
+[2026-05-11 08:30:40 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 149.8709ms
+[2026-05-11 08:30:40 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 08:30:40 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 56.4517ms
+[2026-05-11 08:45:17 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 08:45:17 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 08:45:17 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 08:45:17 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 08:45:18 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 08:45:18 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 08:45:18 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 08:45:18 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 08:45:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 666.2381ms
+[2026-05-11 08:45:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 08:45:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 08:45:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 38.7648ms
+[2026-05-11 08:45:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 111.144ms
+[2026-05-11 08:45:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 08:45:19 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 37.6929ms
+[2026-05-11 08:45:28 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/afiliados/1 - null null
+[2026-05-11 08:45:28 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 08:45:28 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObtenerPorId", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerPorId(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 08:45:28 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-11 08:45:28 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 08:45:40 ERR] GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext Error inesperado en operación de base de datos.
+System.InvalidOperationException: A parameterless default constructor or one matching signature (System.String OperationType, System.Int32 AffiliateId, System.Int32 ErrorId, System.String ErrorMessage, System.DateTime OperationDate) is required for GymAffiliate.Infrastructure.Persistence.Dapper.Parameters.SpOutputRow materialization
+   at Dapper.SqlMapper.GenerateDeserializerFromMap(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing, ILGenerator il) in /_/Dapper/SqlMapper.cs:line 3502
+   at Dapper.SqlMapper.GetTypeDeserializerImpl(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3333
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 151
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 50
+   at Dapper.SqlMapper.GetTypeDeserializer(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3287
+   at Dapper.SqlMapper.GetDeserializer(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 1974
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 211
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass6_0.<<ObtenerAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 130
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+[2026-05-11 08:45:40 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) in 12311.9283ms
+[2026-05-11 08:45:40 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 08:45:40 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/afiliados/1 → 500 (12369.1ms)
+System.InvalidOperationException: A parameterless default constructor or one matching signature (System.String OperationType, System.Int32 AffiliateId, System.Int32 ErrorId, System.String ErrorMessage, System.DateTime OperationDate) is required for GymAffiliate.Infrastructure.Persistence.Dapper.Parameters.SpOutputRow materialization
+   at Dapper.SqlMapper.GenerateDeserializerFromMap(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing, ILGenerator il) in /_/Dapper/SqlMapper.cs:line 3502
+   at Dapper.SqlMapper.GetTypeDeserializerImpl(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3333
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 151
+   at Dapper.SqlMapper.TypeDeserializerCache.GetReader(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.TypeDeserializerCache.cs:line 50
+   at Dapper.SqlMapper.GetTypeDeserializer(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 3287
+   at Dapper.SqlMapper.GetDeserializer(Type type, DbDataReader reader, Int32 startBound, Int32 length, Boolean returnNullIfFirstMissing) in /_/Dapper/SqlMapper.cs:line 1974
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 211
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass6_0.<<ObtenerAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 130
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.ObtenerAsync(Nullable`1 id, String doc, String email, Nullable`1 userId, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 119
+   at GymAffiliate.Application.UseCases.Afiliados.ObtenerAfiliadoHandler.HandleAsync(Nullable`1 id, String doc, String email, Nullable`1 userId, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 106
+   at GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId(Int32 id, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 109
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-11 08:53:15 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 08:53:15 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 08:53:16 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 08:53:16 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 08:53:16 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 08:53:16 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 08:53:16 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 08:53:16 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 08:53:17 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 595.9465ms
+[2026-05-11 08:53:17 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 08:53:17 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 08:53:17 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 13.6271ms
+[2026-05-11 08:53:17 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 83.9635ms
+[2026-05-11 08:53:17 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 08:53:17 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 47.1921ms
+[2026-05-11 08:53:23 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/afiliados/1 - null null
+[2026-05-11 08:53:23 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 08:53:23 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObtenerPorId", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerPorId(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 08:53:23 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-11 08:53:24 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 08:53:31 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) in 7426.6897ms
+[2026-05-11 08:53:31 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 08:53:31 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/afiliados/1 → 500 (7534.1ms)
+System.ArgumentException: GymAffiliate.Application.DTOs.Responses.AfiliadoResponse needs to have a constructor with 0 args or only optional args. Validate your configuration for details. (Parameter 'type')
+   at lambda_method24(Closure, Object, AfiliadoResponse, ResolutionContext)
+   at AutoMapper.Mapper.MapCore[TSource,TDestination](TSource source, TDestination destination, ResolutionContext context, Type sourceType, Type destinationType, MemberMap memberMap)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source, TDestination destination)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at GymAffiliate.Application.UseCases.Afiliados.ObtenerAfiliadoHandler.HandleAsync(Nullable`1 id, String doc, String email, Nullable`1 userId, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 111
+   at GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId(Int32 id, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 109
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-11 08:53:39 ERR] GymAffiliate.Api.Middleware.GlobalExceptionMiddleware Excepción no controlada: GymAffiliate.Application.DTOs.Responses.AfiliadoResponse needs to have a constructor with 0 args or only optional args. Validate your configuration for details. (Parameter 'type')
+System.ArgumentException: GymAffiliate.Application.DTOs.Responses.AfiliadoResponse needs to have a constructor with 0 args or only optional args. Validate your configuration for details. (Parameter 'type')
+   at lambda_method24(Closure, Object, AfiliadoResponse, ResolutionContext)
+   at AutoMapper.Mapper.MapCore[TSource,TDestination](TSource source, TDestination destination, ResolutionContext context, Type sourceType, Type destinationType, MemberMap memberMap)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source, TDestination destination)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at GymAffiliate.Application.UseCases.Afiliados.ObtenerAfiliadoHandler.HandleAsync(Nullable`1 id, String doc, String email, Nullable`1 userId, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 111
+   at GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId(Int32 id, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 109
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at GymAffiliate.Api.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext ctx) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Middleware\GlobalExceptionMiddleware.cs:line 17
+[2026-05-11 08:53:39 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/afiliados/1 - 500 null application/json 15643.4446ms
+[2026-05-11 08:53:57 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/afiliados/1 - null null
+[2026-05-11 08:53:57 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 08:53:57 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObtenerPorId", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerPorId(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 08:53:57 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 08:54:00 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) in 3405.6945ms
+[2026-05-11 08:54:00 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 08:54:00 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/afiliados/1 → 500 (3419.9ms)
+System.ArgumentException: GymAffiliate.Application.DTOs.Responses.AfiliadoResponse needs to have a constructor with 0 args or only optional args. Validate your configuration for details. (Parameter 'type')
+   at lambda_method24(Closure, Object, AfiliadoResponse, ResolutionContext)
+   at AutoMapper.Mapper.MapCore[TSource,TDestination](TSource source, TDestination destination, ResolutionContext context, Type sourceType, Type destinationType, MemberMap memberMap)
+   at AutoMapper.Mapper.Map[TSource,TDestination](TSource source, TDestination destination)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at GymAffiliate.Application.UseCases.Afiliados.ObtenerAfiliadoHandler.HandleAsync(Nullable`1 id, String doc, String email, Nullable`1 userId, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 111
+   at GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId(Int32 id, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 109
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-11 09:16:29 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 09:16:29 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 09:16:29 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 09:16:29 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 09:16:29 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 09:16:29 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 09:16:29 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 09:16:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 09:16:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 205.6462ms
+[2026-05-11 09:16:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 09:16:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 09:16:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 13.8561ms
+[2026-05-11 09:16:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 37.6665ms
+[2026-05-11 09:16:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 09:16:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.3763ms
+[2026-05-11 09:16:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/afiliados/1 - null null
+[2026-05-11 09:16:42 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 09:16:42 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObtenerPorId", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerPorId(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:16:43 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-11 09:16:43 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:16:50 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 7410.5103ms.
+[2026-05-11 09:16:50 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.AfiliadoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 09:16:50 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) in 7757.6128ms
+[2026-05-11 09:16:50 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 09:16:50 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/afiliados/1 → 200 (7837.4ms)
+[2026-05-11 09:16:50 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/afiliados/1 - 200 null application/json; charset=utf-8 7865.4556ms
+[2026-05-11 09:18:02 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/afiliados/2 - null null
+[2026-05-11 09:18:02 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 09:18:02 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObtenerPorId", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerPorId(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:18:02 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:18:08 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 6451.5502ms.
+[2026-05-11 09:18:08 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.AfiliadoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 09:18:08 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) in 6486.8403ms
+[2026-05-11 09:18:08 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 09:18:08 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/afiliados/2 → 200 (6514.6ms)
+[2026-05-11 09:18:08 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/afiliados/2 - 200 null application/json; charset=utf-8 6535.1993ms
+[2026-05-11 09:22:41 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 09:22:41 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 09:22:41 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 09:22:41 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 09:22:42 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 09:22:42 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 09:22:42 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 09:22:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 09:22:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 222.6356ms
+[2026-05-11 09:22:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 09:22:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 09:22:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 24.2664ms
+[2026-05-11 09:22:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 54.56ms
+[2026-05-11 09:22:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 09:22:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 23.1072ms
+[2026-05-11 09:22:49 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/afiliados/1 - null null
+[2026-05-11 09:22:49 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 09:22:49 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObtenerPorId", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObtenerPorId(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:22:50 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-11 09:22:50 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:22:56 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 6402.8372ms.
+[2026-05-11 09:22:56 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.AfiliadoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 09:22:56 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api) in 6735.2836ms
+[2026-05-11 09:22:56 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.ObtenerPorId (GymAffiliate.Api)'
+[2026-05-11 09:22:56 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/afiliados/1 → 200 (6811.5ms)
+[2026-05-11 09:22:56 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/afiliados/1 - 200 null application/json; charset=utf-8 6832.6804ms
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/afiliados?PageNumber=1&PageSize=8 - null null
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Listar (GymAffiliate.Api)'
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Listar", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Listar(GymAffiliate.Application.DTOs.Requests.ListarAfiliadosRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Listar (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.Listar (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 63.3805ms.
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.PagedApiResponse`1[[GymAffiliate.Application.DTOs.Responses.AfiliadoListaResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Listar (GymAffiliate.Api) in 144.9424ms
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Listar (GymAffiliate.Api)'
+[2026-05-11 09:27:12 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/afiliados → 200 (208.5ms)
+[2026-05-11 09:27:12 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/afiliados?PageNumber=1&PageSize=8 - 200 null application/json; charset=utf-8 220.6392ms
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/acceso/validar?affiliateId=1 - null null
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api)'
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Validar", controller = "Acceso"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Validar(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AccesoController (GymAffiliate.Api).
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 160.4581ms.
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.ValidacionAccesoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api) in 225.1629ms
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api)'
+[2026-05-11 09:28:41 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/acceso/validar → 200 (260.2ms)
+[2026-05-11 09:28:41 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/acceso/validar?affiliateId=1 - 200 null application/json; charset=utf-8 287.603ms
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/acceso/validar?affiliateId=2 - null null
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api)'
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Validar", controller = "Acceso"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Validar(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AccesoController (GymAffiliate.Api).
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 4.4824ms.
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.ValidacionAccesoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api) in 48.1512ms
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api)'
+[2026-05-11 09:28:52 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/acceso/validar → 200 (60.4ms)
+[2026-05-11 09:28:52 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/acceso/validar?affiliateId=2 - 200 null application/json; charset=utf-8 77.1131ms
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/acceso/validar?affiliateId=4 - null null
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api)'
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Validar", controller = "Acceso"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Validar(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AccesoController (GymAffiliate.Api).
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 3.9184ms.
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.ValidacionAccesoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api) in 47.8946ms
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AccesoController.Validar (GymAffiliate.Api)'
+[2026-05-11 09:28:59 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/acceso/validar → 200 (63.0ms)
+[2026-05-11 09:28:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/acceso/validar?affiliateId=4 - 200 null application/json; charset=utf-8 94.575ms
+[2026-05-11 09:31:13 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 338
+[2026-05-11 09:31:13 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 09:31:13 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:31:13 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:31:14 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-05-11 09:31:14 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 107.8289ms
+[2026-05-11 09:31:14 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:31:14 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 400 (136.0ms)
+[2026-05-11 09:31:14 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 400 null application/problem+json; charset=utf-8 157.3327ms
+[2026-05-11 09:32:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 338
+[2026-05-11 09:32:06 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 09:32:06 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:32:06 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:32:06 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-05-11 09:32:06 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 4.7132ms
+[2026-05-11 09:32:06 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:32:06 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 400 (28.8ms)
+[2026-05-11 09:32:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 400 null application/problem+json; charset=utf-8 61.1791ms
+[2026-05-11 09:32:25 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 336
+[2026-05-11 09:32:25 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 09:32:25 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:32:25 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:32:25 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-05-11 09:32:25 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 4.7483ms
+[2026-05-11 09:32:25 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:32:25 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 400 (12.9ms)
+[2026-05-11 09:32:25 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 400 null application/problem+json; charset=utf-8 37.0018ms
+[2026-05-11 09:32:44 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 337
+[2026-05-11 09:32:44 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 09:32:44 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:32:44 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:32:44 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:32:44 ERR] GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext Error inesperado en operación de base de datos.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+[2026-05-11 09:32:44 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 493.7836ms
+[2026-05-11 09:32:44 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:32:44 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 500 (504.6ms)
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.CrearAsync(CrearAfiliadoParams p, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 43
+   at GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler.HandleAsync(CrearAfiliadoRequest request, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 37
+   at GymAffiliate.Api.Controllers.AfiliadosController.Crear(CrearAfiliadoRequest request, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-11 09:36:57 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 09:36:57 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 09:36:58 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 09:36:58 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 09:36:58 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 09:36:58 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 09:36:58 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 09:36:58 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 09:36:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 616.2252ms
+[2026-05-11 09:36:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 09:36:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 09:36:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 50.7531ms
+[2026-05-11 09:36:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 100.4629ms
+[2026-05-11 09:36:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 09:36:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 56.33ms
+[2026-05-11 09:37:17 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 337
+[2026-05-11 09:37:17 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 09:37:17 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:37:17 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:37:17 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-11 09:37:17 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:37:18 ERR] GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext Error inesperado en operación de base de datos.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+[2026-05-11 09:37:18 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 1134.425ms
+[2026-05-11 09:37:18 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:37:18 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 500 (1216.0ms)
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.CrearAsync(CrearAfiliadoParams p, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 43
+   at GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler.HandleAsync(CrearAfiliadoRequest request, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 37
+   at GymAffiliate.Api.Controllers.AfiliadosController.Crear(CrearAfiliadoRequest request, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-11 09:37:51 ERR] GymAffiliate.Api.Middleware.GlobalExceptionMiddleware Excepción no controlada: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.CrearAsync(CrearAfiliadoParams p, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 43
+   at GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler.HandleAsync(CrearAfiliadoRequest request, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 37
+   at GymAffiliate.Api.Controllers.AfiliadosController.Crear(CrearAfiliadoRequest request, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at GymAffiliate.Api.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext ctx) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Middleware\GlobalExceptionMiddleware.cs:line 17
+[2026-05-11 09:37:51 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 500 null application/json 34223.9678ms
+[2026-05-11 09:38:24 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 338
+[2026-05-11 09:38:24 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 09:38:24 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:38:24 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:38:24 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:38:24 ERR] GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext Error inesperado en operación de base de datos.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+[2026-05-11 09:38:24 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 407.1552ms
+[2026-05-11 09:38:24 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:38:24 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 500 (428.4ms)
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.CrearAsync(CrearAfiliadoParams p, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 43
+   at GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler.HandleAsync(CrearAfiliadoRequest request, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 37
+   at GymAffiliate.Api.Controllers.AfiliadosController.Crear(CrearAfiliadoRequest request, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-11 09:38:26 ERR] GymAffiliate.Api.Middleware.GlobalExceptionMiddleware Excepción no controlada: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.CrearAsync(CrearAfiliadoParams p, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 43
+   at GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler.HandleAsync(CrearAfiliadoRequest request, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 37
+   at GymAffiliate.Api.Controllers.AfiliadosController.Crear(CrearAfiliadoRequest request, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at GymAffiliate.Api.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext ctx) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Middleware\GlobalExceptionMiddleware.cs:line 17
+[2026-05-11 09:38:26 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 500 null application/json 2626.706ms
+[2026-05-11 09:49:04 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 09:49:05 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 09:49:05 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 09:49:05 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 09:49:05 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 09:49:05 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 09:49:05 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 09:49:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 09:49:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 557.577ms
+[2026-05-11 09:49:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 09:49:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 09:49:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 39.2249ms
+[2026-05-11 09:49:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 94.4876ms
+[2026-05-11 09:49:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 09:49:06 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 49.737ms
+[2026-05-11 09:49:39 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 342
+[2026-05-11 09:49:39 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 09:49:39 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:49:39 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:49:39 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-11 09:49:39 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+[2026-05-11 09:49:39 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 327.5923ms
+[2026-05-11 09:49:39 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:49:39 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 400 (419.1ms)
+[2026-05-11 09:49:39 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 400 null application/problem+json; charset=utf-8 453.3714ms
+[2026-05-11 09:49:47 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 341
+[2026-05-11 09:49:47 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 09:49:47 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:49:47 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 09:49:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 09:49:48 ERR] GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext Error inesperado en operación de base de datos.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+[2026-05-11 09:49:48 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 1022.83ms
+[2026-05-11 09:49:48 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 09:49:48 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 500 (1042.0ms)
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.CrearAsync(CrearAfiliadoParams p, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 43
+   at GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler.HandleAsync(CrearAfiliadoRequest request, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 37
+   at GymAffiliate.Api.Controllers.AfiliadosController.Crear(CrearAfiliadoRequest request, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-11 09:49:55 ERR] GymAffiliate.Api.Middleware.GlobalExceptionMiddleware Excepción no controlada: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass3_0.<<CrearAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 53
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.CrearAsync(CrearAfiliadoParams p, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 43
+   at GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler.HandleAsync(CrearAfiliadoRequest request, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\UseCases\Afiliados.cs:line 37
+   at GymAffiliate.Api.Controllers.AfiliadosController.Crear(CrearAfiliadoRequest request, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 79
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at GymAffiliate.Api.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext ctx) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Middleware\GlobalExceptionMiddleware.cs:line 17
+[2026-05-11 09:49:55 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 500 null application/json 7394.7554ms
+[2026-05-11 15:02:55 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 15:02:55 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 15:02:55 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 15:02:55 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 15:02:56 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 15:02:56 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 15:02:56 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 15:02:57 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 15:02:58 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 600.7393ms
+[2026-05-11 15:02:58 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 15:02:58 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 39.579ms
+[2026-05-11 15:02:58 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 15:02:58 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 167.5531ms
+[2026-05-11 15:02:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 15:02:59 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 36.0281ms
+[2026-05-11 15:03:18 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 DELETE https://localhost:7001/api/afiliados/10?notes=borrado_test - null null
+[2026-05-11 15:03:18 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 15:03:18 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api)'
+[2026-05-11 15:03:18 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Eliminar", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Eliminar(Int32, System.String, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 15:03:19 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-11 15:03:19 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 15:03:20 ERR] GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext Error inesperado en operación de base de datos.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass5_0.<<EliminarAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 104
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+[2026-05-11 15:03:20 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api) in 1734.6959ms
+[2026-05-11 15:03:20 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api)'
+[2026-05-11 15:03:20 ERR] Serilog.AspNetCore.RequestLoggingMiddleware HTTP DELETE /api/afiliados/10 → 500 (1834.3ms)
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass5_0.<<EliminarAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 104
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.EliminarAsync(Int32 affiliateId, String notes, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 94
+   at GymAffiliate.Api.Controllers.AfiliadosController.Eliminar(Int32 id, String notes, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 101
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+[2026-05-11 15:03:29 ERR] GymAffiliate.Api.Middleware.GlobalExceptionMiddleware Excepción no controlada: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+System.ObjectDisposedException: The reader has been disposed; this can happen after all data has been consumed
+Object name: 'Dapper.SqlMapper+GridReader'.
+   at Dapper.SqlMapper.GridReader.OnBeforeGrid() in /_/Dapper/SqlMapper.GridReader.cs:line 185
+   at Dapper.SqlMapper.GridReader.ReadRowAsyncImpl[T](Type type, Row row) in /_/Dapper/SqlMapper.GridReader.Async.cs:line 199
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.<>c__DisplayClass5_0.<<EliminarAsync>b__0>d.MoveNext() in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 104
+--- End of stack trace from previous location ---
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 62
+   at GymAffiliate.Infrastructure.Persistence.Dapper.Context.DapperContext.ExecuteAsync[T](Func`2 operation, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Dapper\Context\DapperContext.cs:line 79
+   at GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository.EliminarAsync(Int32 affiliateId, String notes, Nullable`1 userId, String ip, String session, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Infrastructure\Persistence\Repositories\Repositories.cs:line 94
+   at GymAffiliate.Api.Controllers.AfiliadosController.Eliminar(Int32 id, String notes, CancellationToken ct) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Controllers\Controllers.cs:line 101
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Logged|12_1(ControllerActionInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at GymAffiliate.Api.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext ctx) in C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\Middleware\GlobalExceptionMiddleware.cs:line 17
+[2026-05-11 15:03:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 DELETE https://localhost:7001/api/afiliados/10?notes=borrado_test - 500 null application/json 11131.1493ms
+[2026-05-11 20:05:23 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-05-11 20:05:23 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-05-11 20:05:24 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-05-11 20:05:24 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-05-11 20:05:24 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-05-11 20:05:24 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-05-11 20:05:24 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-05-11 20:05:25 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-05-11 20:05:26 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 1381.7665ms
+[2026-05-11 20:05:26 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-05-11 20:05:26 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-05-11 20:05:26 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 43.5847ms
+[2026-05-11 20:05:27 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 292.4451ms
+[2026-05-11 20:05:27 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-05-11 20:05:27 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 97.8556ms
+[2026-05-11 20:05:42 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 DELETE https://localhost:7001/api/afiliados/9?notes=testdelete - null null
+[2026-05-11 20:05:42 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 20:05:42 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api)'
+[2026-05-11 20:05:42 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Eliminar", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Eliminar(Int32, System.String, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 20:05:43 WRN] LuckyPennySoftware.AutoMapper.License You do not have a valid license key for the Lucky Penny software AutoMapper. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please visit https://luckypennysoftware.com to obtain a valid license.
+[2026-05-11 20:05:43 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 20:05:44 INF] GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository Afiliado 9 dado de baja.
+[2026-05-11 20:05:44 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 1265.8141ms.
+[2026-05-11 20:05:44 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse'.
+[2026-05-11 20:05:44 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api) in 1821.226ms
+[2026-05-11 20:05:44 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Eliminar (GymAffiliate.Api)'
+[2026-05-11 20:05:44 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP DELETE /api/afiliados/9 → 200 (1954.3ms)
+[2026-05-11 20:05:44 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 DELETE https://localhost:7001/api/afiliados/9?notes=testdelete - 200 null application/json; charset=utf-8 2006.1059ms
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/api/notificaciones/por-vencer?daysAhead=3 - null null
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.NotificacionesController.PorVencer (GymAffiliate.Api)'
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "PorVencer", controller = "Notificaciones"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] PorVencer(Int32, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.NotificacionesController (GymAffiliate.Api).
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.NotificacionesController.PorVencer (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.NotificacionesController.PorVencer (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 199.7495ms.
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[System.Collections.Generic.IEnumerable`1[[GymAffiliate.Application.DTOs.Responses.VencimientoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.NotificacionesController.PorVencer (GymAffiliate.Api) in 286.1351ms
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.NotificacionesController.PorVencer (GymAffiliate.Api)'
+[2026-05-11 20:06:25 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP GET /api/notificaciones/por-vencer → 200 (339.9ms)
+[2026-05-11 20:06:25 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/api/notificaciones/por-vencer?daysAhead=3 - 200 null application/json; charset=utf-8 380.7601ms
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 313
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 20:07:54 INF] GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository Afiliado creado Id=0
+[2026-05-11 20:07:54 INF] GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler Afiliado creado correctamente: Id=0
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 75.2623ms.
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.CrearAfiliadoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 231.6512ms
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 20:07:54 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 200 (280.9ms)
+[2026-05-11 20:07:54 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 200 null application/json; charset=utf-8 315.5033ms
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 313
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 20:08:12 WRN] GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository CrearAfiliado ErrorId=1 Msg=El afiliado ya existe: el documento o email ya está registrado.
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 24.084ms.
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing ObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.CrearAfiliadoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 89.0254ms
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 20:08:12 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 409 (111.9ms)
+[2026-05-11 20:08:12 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 409 null application/json; charset=utf-8 134.6817ms
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 314
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 20:08:22 WRN] GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository CrearAfiliado ErrorId=1 Msg=El afiliado ya existe: el documento o email ya está registrado.
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.ObjectResult in 16.4296ms.
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing ObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.CrearAfiliadoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 67.1211ms
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 20:08:22 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 409 (91.7ms)
+[2026-05-11 20:08:22 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 409 null application/json; charset=utf-8 133.0579ms
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 POST https://localhost:7001/api/afiliados - application/json 315
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Crear", controller = "Afiliados"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Crear(GymAffiliate.Application.DTOs.Requests.CrearAfiliadoRequest, System.Threading.CancellationToken) on controller GymAffiliate.Api.Controllers.AfiliadosController (GymAffiliate.Api).
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executing action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) - Validation state: "Valid"
+[2026-05-11 20:08:30 INF] GymAffiliate.Infrastructure.Persistence.Repositories.AfiliadoRepository Afiliado creado Id=0
+[2026-05-11 20:08:30 INF] GymAffiliate.Application.UseCases.Afiliados.CrearAfiliadoHandler Afiliado creado correctamente: Id=0
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action method GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 15.3446ms.
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'GymAffiliate.Shared.Result.ApiResponse`1[[GymAffiliate.Application.DTOs.Responses.CrearAfiliadoResponse, GymAffiliate.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api) in 61.2279ms
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'GymAffiliate.Api.Controllers.AfiliadosController.Crear (GymAffiliate.Api)'
+[2026-05-11 20:08:30 INF] Serilog.AspNetCore.RequestLoggingMiddleware HTTP POST /api/afiliados → 200 (77.5ms)
+[2026-05-11 20:08:30 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 POST https://localhost:7001/api/afiliados - 200 null application/json; charset=utf-8 94.7561ms
