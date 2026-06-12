@@ -1,9 +1,3 @@
-C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.csproj.AssemblyReference.cache
-C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.AssemblyInfoInputs.cache
-C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.AssemblyInfo.cs
-C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.csproj.CoreCompileInputs.cache
-C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.sourcelink.json
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\bin\Debug\net8.0\GymAffiliate.Application.deps.json
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\bin\Debug\net8.0\GymAffiliate.Application.dll
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\bin\Debug\net8.0\GymAffiliate.Application.pdb
@@ -11,6 +5,12 @@ C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\bin\Debug\net8.0\GymAffiliate.Shared.dll
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\bin\Debug\net8.0\GymAffiliate.Domain.pdb
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\bin\Debug\net8.0\GymAffiliate.Shared.pdb
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.csproj.AssemblyReference.cache
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.AssemblyInfoInputs.cache
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.AssemblyInfo.cs
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.csproj.CoreCompileInputs.cache
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.sourcelink.json
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffil.75B51C2F.Up2Date
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\GymAffiliate.Application.dll
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Application\obj\Debug\net8.0\refint\GymAffiliate.Application.dll

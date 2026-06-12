@@ -1,0 +1,18 @@
+[2026-06-01 09:18:28 INF]  GymAffiliate API lista. Swagger: https://localhost:xxxx/
+[2026-06-01 09:18:28 INF] Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager User profile is available. Using 'C:\Users\Miguel Angel\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+[2026-06-01 09:18:28 INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7001
+[2026-06-01 09:18:28 INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5001
+[2026-06-01 09:18:28 INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+[2026-06-01 09:18:28 INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+[2026-06-01 09:18:28 INF] Microsoft.Hosting.Lifetime Content root path: C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api
+[2026-06-01 09:18:34 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/index.html - null null
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/index.html - 200 null text/html;charset=utf-8 1195.4494ms
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - null null
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_framework/aspnetcore-browser-refresh.js - 200 16517 application/javascript; charset=utf-8 22.553ms
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/_vs/browserLink - null null
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/_vs/browserLink - 200 null text/javascript; charset=UTF-8 123.1683ms
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - null null
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7001/favicon-32x32.png - null null
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/favicon-32x32.png - 200 628 image/png 73.4961ms
+[2026-06-01 09:18:35 INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7001/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 119.4587ms
