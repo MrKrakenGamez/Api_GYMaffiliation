@@ -214,3 +214,80 @@ public class SucursalResponse
     public int TotalAffiliates { get; set; }
     public int ActiveAffiliates { get; set; }
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Auth
+// ─────────────────────────────────────────────────────────────────────────────
+
+/// <summary>Respuesta del login: par de tokens + datos básicos del usuario.</summary>
+public class LoginResponse
+{
+    public string AccessToken { get; set; } = string.Empty;
+    public string RefreshToken { get; set; } = string.Empty;
+    public DateTime AccessTokenExpiry { get; set; }
+    public DateTime RefreshTokenExpiry { get; set; }
+    public UsuarioInfoResponse Usuario { get; set; } = null!;
+}
+
+/// <summary>Respuesta del refresh: nuevo par de tokens.</summary>
+public class RefreshTokenResponse
+{
+    public string AccessToken { get; set; } = string.Empty;
+    public string RefreshToken { get; set; } = string.Empty;
+    public DateTime AccessTokenExpiry { get; set; }
+    public DateTime RefreshTokenExpiry { get; set; }
+}
+
+/// <summary>Datos básicos del usuario autenticado (viajan en el token y en la respuesta).</summary>
+public class UsuarioInfoResponse
+{
+    public int UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string RoleCode { get; set; } = string.Empty;
+    public string RoleName { get; set; } = string.Empty;
+    public int? BranchId { get; set; }
+}
+
+/// <summary>Datos completos de un usuario del sistema.</summary>
+public class UsuarioSistemaResponse
+{
+    public int UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string RoleCode { get; set; } = string.Empty;
+    public string RoleName { get; set; } = string.Empty;
+    public int? BranchId { get; set; }
+    public string? BranchName { get; set; }
+    public bool IsActive { get; set; }
+    public DateTime? LastLogin { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime? DeactivatedAt { get; set; }
+    public string? DeactivationReason { get; set; }
+}
+
+/// <summary>Fila del listado de usuarios.</summary>
+public class UsuarioSistemaListaResponse
+{
+    public int UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string RoleCode { get; set; } = string.Empty;
+    public string RoleName { get; set; } = string.Empty;
+    public string? BranchName { get; set; }
+    public bool IsActive { get; set; }
+    public DateTime? LastLogin { get; set; }
+    public DateTime CreatedAt { get; set; }
+}
+
+/// <summary>Resultado de la purga de tokens.</summary>
+public class PurgaTokensResponse
+{
+    public int PurgedRefreshTokens { get; set; }
+    public int PurgedAccessTokens { get; set; }
+    public DateTime ExecutedAt { get; set; }
+    public DateTime CutoffDate { get; set; }
+}

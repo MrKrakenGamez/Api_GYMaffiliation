@@ -6,6 +6,25 @@ namespace GymAffiliate.Domain.Interfaces.Repositories;
 // Interfaces
 // ─────────────────────────────────────────────────────────────────────────────
 
+public interface IAuthRepository
+{
+    // Auth
+    Task<Result<LoginRaw>> LoginAsync(string username, string passwordHash, string? ip, string? userAgent, CancellationToken ct = default);
+    Task<Result<RefreshTokenRaw>> RefreshTokenAsync(string refreshToken, string? ip, string? userAgent, CancellationToken ct = default);
+    Task<Result> LogoutAsync(string? refreshToken, int? userId, CancellationToken ct = default);
+    Task<Result> RevokeAccessTokenAsync(string jti, DateTime accessTokenExp, int? userId, string? reason, CancellationToken ct = default);
+    Task<Result<bool>> IsTokenRevokedAsync(string jti, CancellationToken ct = default);
+
+    // Users
+    Task<Result<UsuarioSistemaRaw>> CrearUsuarioAsync(CrearUsuarioParams p, CancellationToken ct = default);
+    Task<Result> DarDeBajaAsync(int userId, string reason, int operatedBy, CancellationToken ct = default);
+    Task<Result<UsuarioSistemaRaw?>> ObtenerUsuarioAsync(int? userId, string? username, CancellationToken ct = default);
+    Task<Result<(IEnumerable<UsuarioSistemaListaRaw> Items, int Total)>> ListarUsuariosAsync(int? roleId, int? branchId, int pageNumber, int pageSize, CancellationToken ct = default);
+
+    // Maintenance
+    Task<Result<PurgaTokensRaw>> PurgarTokensAsync(CancellationToken ct = default);
+}
+
 public interface IAfiliadoRepository
 {
     Task<Result<int>> CrearAsync(CrearAfiliadoParams p, CancellationToken ct = default);
@@ -97,6 +116,15 @@ public record RegistrarPagoParams(
     int AffiliateId, int MembershipId, int PaymentMethodId,
     decimal Amount, string? ReferenceNumber, string? Notes,
     int? UserId, string? Ip, string? Session);
+public record CrearUsuarioParams(
+    string Username,
+    string PasswordHash,
+    string FullName,
+    string Email,
+    int RoleId,
+    int? BranchId,
+    int? OperatedBy);
+
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Raw Data Models
@@ -298,4 +326,71 @@ public class AfiliadoEstadoRaw
     public string  Status     { get; set; } = string.Empty;
     public int     Total      { get; set; }
     public string? BranchName { get; set; }
+}
+
+/// <summary>RS1 del login: datos del usuario para que C# genere los JWTs.</summary>
+public class LoginRaw
+{
+    public int UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public int RoleId { get; set; }
+    public string RoleCode { get; set; } = string.Empty;
+    public string RoleName { get; set; } = string.Empty;
+    public int? BranchId { get; set; }
+}
+
+/// <summary>RS1 del refreshtoken: datos del usuario + nuevo refresh token.</summary>
+public class RefreshTokenRaw : LoginRaw
+{
+    public string NewRefreshToken { get; set; } = string.Empty;
+    public DateTime RefreshTokenExpiry { get; set; }
+}
+
+
+
+/// <summary>Datos completos de un usuario del sistema.</summary>
+public class UsuarioSistemaRaw
+{
+    public int UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public int RoleId { get; set; }
+    public string RoleCode { get; set; } = string.Empty;
+    public string RoleName { get; set; } = string.Empty;
+    public int? BranchId { get; set; }
+    public string? BranchName { get; set; }
+    public bool IsActive { get; set; }
+    public DateTime? LastLogin { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
+    public DateTime? DeactivatedAt { get; set; }
+    public string? DeactivationReason { get; set; }
+}
+
+/// <summary>Fila del listado paginado de usuarios del sistema.</summary>
+public class UsuarioSistemaListaRaw
+{
+    public int UserId { get; set; }
+    public string Username { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string RoleCode { get; set; } = string.Empty;
+    public string RoleName { get; set; } = string.Empty;
+    public string? BranchName { get; set; }
+    public bool IsActive { get; set; }
+    public DateTime? LastLogin { get; set; }
+    public DateTime CreatedAt { get; set; }
+    public int TotalRecords { get; set; }
+}
+
+/// <summary>RS1 del purgetokens.</summary>
+public class PurgaTokensRaw
+{
+    public int PurgedRefreshTokens { get; set; }
+    public int PurgedAccessTokens { get; set; }
+    public DateTime ExecutedAt { get; set; }
+    public DateTime CutoffDate { get; set; }
 }

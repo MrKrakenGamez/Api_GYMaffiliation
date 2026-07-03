@@ -23,6 +23,11 @@ public static class ErrorCodes
     public const string ConexionBD               = "SY_003";
     public const string ErrorInesperado          = "SY_901";
     public const string ErrorValidacion          = "VAL_001";
+    //auth errors
+    public const string CredencialesInvalidas    = "CI_021";
+    public const string UsuarioInactivo          = "UI_022";
+    public const string UsuarioNoEncontrado      = "UNE_023";
+    public const string UsuarioDuplicado         = "UD_024";
 }
 
 public static class SpErrorMapper
@@ -47,6 +52,10 @@ public static class SpErrorMapper
         { 16, (ErrorCodes.AfiliadoYaEliminado,     400) },
         { 19, (ErrorCodes.PagoMontoInvalido,       422) },
         { 20, (ErrorCodes.PagoYaCancelado,         400) },
+        { 21, (ErrorCodes.CredencialesInvalidas,   401) },
+        { 22, (ErrorCodes.UsuarioInactivo,         403) },
+        { 23, (ErrorCodes.UsuarioNoEncontrado,    404) },
+        { 24, (ErrorCodes.UsuarioDuplicado,       409) },
     };
     public static ResultError ToResultError(int errorId, string spMessage)
     {

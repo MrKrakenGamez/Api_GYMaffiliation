@@ -106,3 +106,36 @@ public record ReporteIngresosRequest(
     int? Year,
     int? Month,
     int? BranchId);
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Auth
+// ─────────────────────────────────────────────────────────────────────────────
+
+public record LoginRequest(
+    string Username,
+    string Password);         // contraseña en texto plano; el handler la hashea
+
+public record RefreshTokenRequest(
+    string RefreshToken);
+
+public record LogoutRequest(
+    string? RefreshToken,     // logout de la sesión actual
+    bool LogoutAll = false); // true → cierra TODAS las sesiones del usuario
+
+public record CrearUsuarioRequest(
+    string Username,
+    string Password,
+    string FullName,
+    string Email,
+    int RoleId,
+    int? BranchId);
+
+public record DarDeBajaRequest(
+    int UserId,
+    string Reason);
+
+public record ListarUsuariosRequest(
+    int? RoleId = null,
+    int? BranchId = null,
+    int PageNumber = 1,
+    int PageSize = 20);

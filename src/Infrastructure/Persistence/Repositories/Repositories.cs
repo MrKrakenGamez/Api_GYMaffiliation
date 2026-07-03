@@ -596,3 +596,445 @@ public sealed class ReporteRepository(IDapperContext db) : IReporteRepository
             return Result<IEnumerable<AfiliadoEstadoRaw>>.Success(rows);
         }, ct);
 }
+public sealed class AuthRepository(
+    IDapperContext db,
+    ILogger<AuthRepository> log) : IAuthRepository
+{
+    // ─────────────────────────────────────────────────────────────────────────
+    // Helpers privados
+    // ─────────────────────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// Traduce el ErrorId de sp_Auth (que usa HTTP codes directamente) a ResultError.
+    /// </summary>
+    private static ResultError MapAuthError(int errorId, string message) =>
+        errorId switch
+        {
+            400 => new ResultError(ErrorCodes.OperacionInvalida, message, 400),
+            401 => new ResultError(ErrorCodes.CredencialesInvalidas, message, 401),
+            403 => new ResultError(ErrorCodes.UsuarioInactivo, message, 403),
+            404 => new ResultError(ErrorCodes.UsuarioNoEncontrado, message, 404),
+            409 => new ResultError(ErrorCodes.UsuarioDuplicado, message, 409),
+            500 => new ResultError(ErrorCodes.ErrorInesperado, message, 500),
+            _ => new ResultError(ErrorCodes.ErrorInesperado, message, 500),
+        };
+
+    /// <summary>Lee la fila de output (RS final con ErrorId/Message) del GridReader.</summary>
+    private static async Task<(int? ErrorId, string Message)> ReadOutputAsync(SqlMapper.GridReader multi)
+    {
+        try
+        {
+            if (multi.IsConsumed) return (null, string.Empty);
+            var row = await multi.ReadFirstOrDefaultAsync<AuthOutputRow>();
+            return (row?.ErrorId, row?.Message ?? string.Empty);
+        }
+        catch
+        {
+            return (null, string.Empty);
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // AUTH — login
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result<LoginRaw>> LoginAsync(
+        string username, string passwordHash, string? ip, string? userAgent,
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.Login(username, passwordHash, ip, userAgent);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            // Leer primer RS como dynamic para detectar si es error o datos
+            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+            if (first is null)
+                return Result<LoginRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta del servidor.", 500));
+
+            // ¿Es una fila de error? (tiene ErrorId y Message, no UserId)
+            if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            {
+                var eid = Convert.ToInt32(first["ErrorId"]);
+                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
+                return Result<LoginRaw>.Failure(MapAuthError(eid, msg));
+            }
+
+            // RS1 = datos del usuario → mapear
+            var raw = MapToLoginRaw(first);
+
+            // RS2 = output row (ignorar, ya tenemos éxito)
+            _ = await ReadOutputAsync(multi);
+
+            log.LogInformation("Login exitoso: User={Username} Id={UserId}", username, raw.UserId);
+            return Result<LoginRaw>.Success(raw);
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en LoginAsync para {Username}", username);
+            return Result<LoginRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al autenticar.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // AUTH — refreshtoken
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result<RefreshTokenRaw>> RefreshTokenAsync(
+        string refreshToken, string? ip, string? userAgent,
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.RefreshToken(refreshToken, ip, userAgent);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+            if (first is null)
+                return Result<RefreshTokenRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta.", 500));
+
+            if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            {
+                var eid = Convert.ToInt32(first["ErrorId"]);
+                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
+                return Result<RefreshTokenRaw>.Failure(MapAuthError(eid, msg));
+            }
+
+            var raw = MapToRefreshTokenRaw(first);
+            _ = await ReadOutputAsync(multi);
+
+            log.LogInformation("Refresh token rotado para UserId={UserId}", raw.UserId);
+            return Result<RefreshTokenRaw>.Success(raw);
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en RefreshTokenAsync");
+            return Result<RefreshTokenRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al renovar token.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // AUTH — logout
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result> LogoutAsync(string? refreshToken, int? userId, CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.Logout(refreshToken, userId);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            // RS1 = { RevokedSessions }
+            _ = await multi.ReadAsync<dynamic>();
+
+            var (eid, msg) = await ReadOutputAsync(multi);
+            if (eid is > 0)
+                return Result.Failure(MapAuthError(eid.Value, msg));
+
+            return Result.Success();
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en LogoutAsync");
+            return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al cerrar sesión.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // AUTH — revokeaccesstoken
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result> RevokeAccessTokenAsync(
+        string jti, DateTime accessTokenExp, int? userId, string? reason,
+        CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.RevokeAccessToken(jti, accessTokenExp, userId, reason);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            _ = await multi.ReadAsync<dynamic>();   // RS1 = { AlreadyRevoked } o { Inserted }
+            var (eid, msg) = await ReadOutputAsync(multi);
+
+            if (eid is > 0)
+                return Result.Failure(MapAuthError(eid.Value, msg));
+
+            return Result.Success();
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en RevokeAccessTokenAsync jti={Jti}", jti);
+            return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al revocar token.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // AUTH — validateblacklist (llamado desde middleware — debe ser MUY rápido)
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result<bool>> IsTokenRevokedAsync(string jti, CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.ValidateBlacklist(jti);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            var row = await multi.ReadFirstOrDefaultAsync<dynamic>();
+            bool isRevoked = row is not null && Convert.ToBoolean(((IDictionary<string, object>)row)["IsRevoked"]);
+
+            return Result<bool>.Success(isRevoked);
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en IsTokenRevokedAsync jti={Jti}", jti);
+            // En caso de falla del SP, asumir NO revocado (fail-open) para no bloquear usuarios
+            return Result<bool>.Success(false);
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // USERS — createuser
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result<UsuarioSistemaRaw>> CrearUsuarioAsync(
+        CrearUsuarioParams p, CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.CrearUsuario(p);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+            if (first is null)
+                return Result<UsuarioSistemaRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta.", 500));
+
+            if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            {
+                var eid = Convert.ToInt32(first["ErrorId"]);
+                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
+                return Result<UsuarioSistemaRaw>.Failure(MapAuthError(eid, msg));
+            }
+
+            var raw = MapToUsuarioSistemaRaw(first);
+            _ = await ReadOutputAsync(multi);
+
+            log.LogInformation("Usuario creado: Id={UserId} Username={Username}", raw.UserId, raw.Username);
+            return Result<UsuarioSistemaRaw>.Success(raw);
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en CrearUsuarioAsync Username={Username}", p.Username);
+            return Result<UsuarioSistemaRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al crear usuario.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // USERS — deactivateuser
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result> DarDeBajaAsync(int userId, string reason, int operatedBy, CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.DarDeBaja(userId, reason, operatedBy);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+            if (first is not null && first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            {
+                var eid = Convert.ToInt32(first["ErrorId"]);
+                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
+                return Result.Failure(MapAuthError(eid, msg));
+            }
+
+            _ = await ReadOutputAsync(multi);
+
+            log.LogWarning("Usuario dado de baja: Id={UserId} Por={OperatedBy} Motivo={Reason}", userId, operatedBy, reason);
+            return Result.Success();
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en DarDeBajaAsync UserId={UserId}", userId);
+            return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al dar de baja el usuario.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // USERS — getuser
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result<UsuarioSistemaRaw?>> ObtenerUsuarioAsync(
+        int? userId, string? username, CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.ObtenerUsuario(userId, username);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+            if (first is null) return Result<UsuarioSistemaRaw?>.Success(null);
+
+            if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            {
+                var eid = Convert.ToInt32(first["ErrorId"]);
+                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
+                return Result<UsuarioSistemaRaw?>.Failure(MapAuthError(eid, msg));
+            }
+
+            return Result<UsuarioSistemaRaw?>.Success(MapToUsuarioSistemaRaw(first));
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en ObtenerUsuarioAsync");
+            return Result<UsuarioSistemaRaw?>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al obtener usuario.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // USERS — listusers
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result<(IEnumerable<UsuarioSistemaListaRaw> Items, int Total)>> ListarUsuariosAsync(
+        int? roleId, int? branchId, int pageNumber, int pageSize, CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.ListarUsuarios(roleId, branchId, pageNumber, pageSize);
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            var rows = (await multi.ReadAsync<UsuarioSistemaListaRaw>()).ToList();
+            _ = await ReadOutputAsync(multi);
+
+            int total = rows.FirstOrDefault()?.TotalRecords ?? 0;
+            return Result<(IEnumerable<UsuarioSistemaListaRaw>, int)>.Success((rows, total));
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en ListarUsuariosAsync");
+            return Result<(IEnumerable<UsuarioSistemaListaRaw>, int)>.Failure(
+                new ResultError(ErrorCodes.ErrorInesperado, "Error al listar usuarios.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // MAINTENANCE — purgetokens
+    // ─────────────────────────────────────────────────────────────────────────
+    public async Task<Result<PurgaTokensRaw>> PurgarTokensAsync(CancellationToken ct = default)
+    {
+        try
+        {
+            var conn = await db.GetConnectionAsync(ct);
+            var prms = AuthSpParameters.PurgarTokens();
+
+            using var multi = await conn.QueryMultipleAsync(
+                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+            var row = await multi.ReadFirstOrDefaultAsync<PurgaTokensRaw>();
+            _ = await ReadOutputAsync(multi);
+
+            log.LogInformation("Purga de tokens ejecutada: Refresh={R} Access={A}",
+                row?.PurgedRefreshTokens, row?.PurgedAccessTokens);
+
+            return row is not null
+                ? Result<PurgaTokensRaw>.Success(row)
+                : Result<PurgaTokensRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta de purga.", 500));
+        }
+        catch (Exception ex)
+        {
+            log.LogError(ex, "Error en PurgarTokensAsync");
+            return Result<PurgaTokensRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error en purga de tokens.", 500));
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // Mappers privados (dynamic → typed)
+    // ─────────────────────────────────────────────────────────────────────────
+    private static T Get<T>(IDictionary<string, object> d, string key, T defaultVal = default!)
+    {
+        if (!d.TryGetValue(key, out var val) || val is null) return defaultVal;
+        if (val is T t) return t;
+        return (T)Convert.ChangeType(val, typeof(T));
+    }
+
+    private static LoginRaw MapToLoginRaw(IDictionary<string, object> d) => new()
+    {
+        UserId = Get<int>(d, "UserId"),
+        Username = Get<string>(d, "Username"),
+        FullName = Get<string>(d, "FullName"),
+        Email = Get<string>(d, "Email"),
+        RoleId = Get<int>(d, "RoleId"),
+        RoleCode = Get<string>(d, "RoleCode"),
+        RoleName = Get<string>(d, "RoleName"),
+        BranchId = d.TryGetValue("BranchId", out var bid) && bid is not null ? (int?)Convert.ToInt32(bid) : null,
+    };
+
+    private static RefreshTokenRaw MapToRefreshTokenRaw(IDictionary<string, object> d) => new()
+    {
+        UserId = Get<int>(d, "UserId"),
+        Username = Get<string>(d, "Username"),
+        FullName = Get<string>(d, "FullName"),
+        Email = Get<string>(d, "Email"),
+        RoleId = Get<int>(d, "RoleId"),
+        RoleCode = Get<string>(d, "RoleCode"),
+        RoleName = Get<string>(d, "RoleName"),
+        BranchId = d.TryGetValue("BranchId", out var bid) && bid is not null ? (int?)Convert.ToInt32(bid) : null,
+        NewRefreshToken = Get<string>(d, "NewRefreshToken"),
+        RefreshTokenExpiry = Get<DateTime>(d, "RefreshTokenExpiry"),
+    };
+
+    private static UsuarioSistemaRaw MapToUsuarioSistemaRaw(IDictionary<string, object> d) => new()
+    {
+        UserId = Get<int>(d, "UserId"),
+        Username = Get<string>(d, "Username"),
+        FullName = Get<string>(d, "FullName"),
+        Email = Get<string>(d, "Email"),
+        RoleId = Get<int>(d, "RoleId"),
+        RoleCode = Get<string>(d, "RoleCode"),
+        RoleName = Get<string>(d, "RoleName"),
+        BranchId = d.TryGetValue("BranchId", out var bid) && bid is not null ? (int?)Convert.ToInt32(bid) : null,
+        BranchName = d.TryGetValue("BranchName", out var bn) ? bn?.ToString() : null,
+        IsActive = Get<bool>(d, "IsActive"),
+        LastLogin = d.TryGetValue("LastLogin", out var ll) && ll is not null ? (DateTime?)Convert.ToDateTime(ll) : null,
+        CreatedAt = Get<DateTime>(d, "CreatedAt"),
+        UpdatedAt = d.TryGetValue("UpdatedAt", out var ua) && ua is not null ? (DateTime?)Convert.ToDateTime(ua) : null,
+        DeactivatedAt = d.TryGetValue("DeactivatedAt", out var da) && da is not null ? (DateTime?)Convert.ToDateTime(da) : null,
+        DeactivationReason = d.TryGetValue("DeactivationReason", out var dr) ? dr?.ToString() : null,
+    };
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// DTO interno para leer el RS de output de sp_Auth
+// ─────────────────────────────────────────────────────────────────────────────
+file class AuthOutputRow
+{
+    public int? ErrorId { get; set; }
+    public string? Message { get; set; }
+}

@@ -287,3 +287,107 @@ public static class SpParameters
         return p;
     }
 }
+
+public static partial class AuthSpParameters
+{
+    public static DynamicParameters Login(string username, string passwordHash, string? ip, string? userAgent)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "login");
+        p.Add("@Username", username);
+        p.Add("@PasswordHash", passwordHash);
+        p.Add("@IpAddress", ip);
+        p.Add("@UserAgent", userAgent);
+        return p;
+    }
+
+    public static DynamicParameters RefreshToken(string refreshToken, string? ip, string? userAgent)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "refreshtoken");
+        p.Add("@RefreshToken", refreshToken);
+        p.Add("@IpAddress", ip);
+        p.Add("@UserAgent", userAgent);
+        return p;
+    }
+
+    public static DynamicParameters Logout(string? refreshToken, int? userId)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "logout");
+        p.Add("@RefreshToken", refreshToken);
+        p.Add("@UserId", userId);
+        return p;
+    }
+
+    public static DynamicParameters RevokeAccessToken(string jti, DateTime exp, int? userId, string? reason)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "revokeaccesstoken");
+        p.Add("@Jti", jti);
+        p.Add("@AccessTokenExp", exp);
+        p.Add("@UserId", userId);
+        p.Add("@DeactivationReason", reason);
+        return p;
+    }
+
+    public static DynamicParameters ValidateBlacklist(string jti)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "validateblacklist");
+        p.Add("@Jti", jti);
+        return p;
+    }
+
+    public static DynamicParameters CrearUsuario(CrearUsuarioParams r)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "createuser");
+        p.Add("@Username", r.Username);
+        p.Add("@PasswordHash", r.PasswordHash);
+        p.Add("@FullName", r.FullName);
+        p.Add("@Email", r.Email);
+        p.Add("@RoleId", r.RoleId);
+        p.Add("@BranchId", r.BranchId);
+        p.Add("@OperatedBy", r.OperatedBy);
+        return p;
+    }
+
+    public static DynamicParameters DarDeBaja(int userId, string reason, int operatedBy)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "deactivateuser");
+        p.Add("@UserId", userId);
+        p.Add("@DeactivationReason", reason);
+        p.Add("@OperatedBy", operatedBy);
+        return p;
+    }
+
+    public static DynamicParameters ObtenerUsuario(int? userId, string? username)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "getuser");
+        p.Add("@UserId", userId);
+        p.Add("@Username", username);
+        return p;
+    }
+
+    public static DynamicParameters ListarUsuarios(int? roleId, int? branchId, int page, int pageSize)
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "listusers");
+        p.Add("@RoleId", roleId);
+        p.Add("@BranchId", branchId);
+        p.Add("@PageNumber", page);
+        p.Add("@PageSize", pageSize);
+        return p;
+    }
+
+    public static DynamicParameters PurgarTokens()
+    {
+        var p = new DynamicParameters();
+        p.Add("@Operation", "purgetokens");
+        return p;
+    }
+}
+

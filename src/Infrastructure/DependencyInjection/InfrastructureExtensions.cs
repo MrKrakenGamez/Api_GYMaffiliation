@@ -1,4 +1,5 @@
 using System.Text;
+using GymAffiliate.Application.UseCases.Auth;
 using GymAffiliate.Domain.Interfaces.Repositories;
 using GymAffiliate.Infrastructure.Configuration;
 using GymAffiliate.Infrastructure.Persistence.Dapper.Context;
@@ -45,9 +46,43 @@ public static class InfrastructureExtensions
         services.AddScoped<INotificacionRepository, NotificacionRepository>();
         services.AddScoped<ISucursalRepository,    SucursalRepository>();
         services.AddScoped<IReporteRepository,     ReporteRepository>();
+        // Auth
+           services.AddScoped<IAuthRepository, AuthRepository>();
+           services.AddSingleton<TokenService>();
 
         // ── JWT Authentication (prepared, toggle with UseJwt flag) ────────
         var authOpts = configuration.GetSection(AuthOptions.Section).Get<AuthOptions>() ?? new AuthOptions();
+
+          // JWT Authentication
+    var jwtSettings = configuration.GetSection("Auth:JwtSettings").Get<JwtSettings>()!;
+        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(opts =>
+            {
+                opts.TokenValidationParameters = new TokenService(
+                    Microsoft.Extensions.Options.Options.Create(
+                        configuration.GetSection(AuthOptions.Section).Get<AuthOptions>()!))
+                    .GetValidationParameters();
+
+                opts.Events = new JwtBearerEvents
+                {
+                    OnChallenge = ctx =>
+                    {
+                        ctx.HandleResponse();
+                        ctx.Response.StatusCode = 401;
+                        ctx.Response.ContentType = "application/json";
+                        return ctx.Response.WriteAsync(
+                            "{\"success\":false,\"errorCode\":\"AU_101\",\"message\":\"No autenticado.\"}");
+                    },
+                    OnForbidden = ctx =>
+                    {
+                        ctx.Response.StatusCode = 403;
+                        ctx.Response.ContentType = "application/json";
+                        return ctx.Response.WriteAsync(
+                            "{\"success\":false,\"errorCode\":\"AU_108\",\"message\":\"Sin permisos.\"}");
+                    }
+                };
+            });
+
 
         if (authOpts.UseJwt && !string.IsNullOrWhiteSpace(authOpts.JwtSettings.Secret))
         {

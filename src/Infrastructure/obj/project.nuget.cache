@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "JTLIIen4vg8=",
-  "success": true,
+  "dgSpecHash": "Je+ncEbvoWM=",
+  "success": false,
   "projectFilePath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\GymAffiliate.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Miguel Angel\\.nuget\\packages\\automapper\\16.1.1\\automapper.16.1.1.nupkg.sha512",
@@ -63,5 +63,17 @@
     "C:\\Users\\Miguel Angel\\.nuget\\packages\\system.text.encodings.web\\10.0.0\\system.text.encodings.web.10.0.0.nupkg.sha512",
     "C:\\Users\\Miguel Angel\\.nuget\\packages\\system.text.json\\10.0.0\\system.text.json.10.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1108",
+      "level": "Error",
+      "message": "Ciclo detectado. \r\n  GymAffiliate.Infrastructure -> GymAffiliate.Application -> GymAffiliate.Infrastructure.",
+      "projectPath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\GymAffiliate.Infrastructure.csproj",
+      "filePath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\GymAffiliate.Infrastructure.csproj",
+      "libraryId": "GymAffiliate.Infrastructure",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

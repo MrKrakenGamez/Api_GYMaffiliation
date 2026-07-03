@@ -1103,6 +1103,31 @@
           "bin/placeholder/GymAffiliate.Domain.dll": {}
         }
       },
+      "GymAffiliate.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "AutoMapper": "16.1.1",
+          "GymAffiliate.Application": "1.0.0",
+          "GymAffiliate.Domain": "1.0.0",
+          "GymAffiliate.Shared": "1.0.0",
+          "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.1",
+          "Microsoft.Extensions.Options": "10.0.7",
+          "Microsoft.OpenApi": "1.6.15",
+          "Newtonsoft.Json": "13.0.4",
+          "Serilog.AspNetCore": "10.0.0",
+          "Serilog.Enrichers.Environment": "3.0.1",
+          "Serilog.Sinks.Console": "6.1.1",
+          "Serilog.Sinks.File": "7.0.0",
+          "Swashbuckle.AspNetCore": "6.6.2"
+        },
+        "compile": {
+          "bin/placeholder/GymAffiliate.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GymAffiliate.Infrastructure.dll": {}
+        }
+      },
       "GymAffiliate.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -3015,6 +3040,11 @@
       "path": "../Domain/GymAffiliate.Domain.csproj",
       "msbuildProject": "../Domain/GymAffiliate.Domain.csproj"
     },
+    "GymAffiliate.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../Infrastructure/GymAffiliate.Infrastructure.csproj",
+      "msbuildProject": "../Infrastructure/GymAffiliate.Infrastructure.csproj"
+    },
     "GymAffiliate.Shared/1.0.0": {
       "type": "project",
       "path": "../Shared/GymAffiliate.Shared.csproj",
@@ -3028,6 +3058,7 @@
       "FluentValidation >= 12.1.1",
       "FluentValidation.DependencyInjectionExtensions >= 12.1.1",
       "GymAffiliate.Domain >= 1.0.0",
+      "GymAffiliate.Infrastructure >= 1.0.0",
       "GymAffiliate.Shared >= 1.0.0",
       "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.1",
       "Microsoft.Data.SqlClient >= 7.0.1",
@@ -3079,6 +3110,9 @@
           "projectReferences": {
             "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Domain\\GymAffiliate.Domain.csproj": {
               "projectPath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Domain\\GymAffiliate.Domain.csproj"
+            },
+            "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\GymAffiliate.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\GymAffiliate.Infrastructure.csproj"
             },
             "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Shared\\GymAffiliate.Shared.csproj": {
               "projectPath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Shared\\GymAffiliate.Shared.csproj"
@@ -3190,5 +3224,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1108",
+      "level": "Error",
+      "message": "Ciclo detectado. \r\n  GymAffiliate.Application -> GymAffiliate.Infrastructure -> GymAffiliate.Application.",
+      "libraryId": "GymAffiliate.Application",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
