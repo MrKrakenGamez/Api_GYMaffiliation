@@ -17,7 +17,7 @@ public class LoginRequestValidator : AbstractValidator<LoginRequest>
             .MaximumLength(100).WithMessage("El username no puede superar 100 caracteres.");
         RuleFor(x => x.Password)
             .NotEmpty().WithMessage("La contraseña es requerida.")
-            .MaximumLength(6).WithMessage("La contraseña debe tener al menos 6 caracteres.");
+            .MinimumLength(6).WithMessage("La contraseña debe tener al menos 6 caracteres.");
     }
 }
 

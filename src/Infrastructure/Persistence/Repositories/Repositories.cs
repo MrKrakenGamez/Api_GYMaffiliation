@@ -637,171 +637,378 @@ public sealed class AuthRepository(
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — login
     // ─────────────────────────────────────────────────────────────────────────
-    public async Task<Result<LoginRaw>> LoginAsync(
-        string username, string passwordHash, string? ip, string? userAgent,
-        CancellationToken ct = default)
+    //public async Task<Result<LoginRaw>> LoginAsync(
+    //    string username, string passwordHash, string? ip, string? userAgent,
+    //    CancellationToken ct = default)
+    //{
+    //    try
+    //    {
+    //        //var conn = await db.GetConnectionAsync(ct);
+    //        var conn = await db.ExecuteAsync(ct);
+
+    //        var prms = AuthSpParameters.Login(username, passwordHash, ip, userAgent);
+
+    //        using var multi = await conn.QueryMultipleAsync(
+    //            StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+    //        // Leer primer RS como dynamic para detectar si es error o datos
+    //        var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+    //        var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+    //        if (first is null)
+    //            return Result<LoginRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta del servidor.", 500));
+
+    //        // ¿Es una fila de error? (tiene ErrorId y Message, no UserId)
+    //        if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+    //        {
+    //            var eid = Convert.ToInt32(first["ErrorId"]);
+    //            var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
+    //            return Result<LoginRaw>.Failure(MapAuthError(eid, msg));
+    //        }
+
+    //        // RS1 = datos del usuario → mapear
+    //        var raw = MapToLoginRaw(first);
+
+    //        // RS2 = output row (ignorar, ya tenemos éxito)
+    //        _ = await ReadOutputAsync(multi);
+
+    //        log.LogInformation("Login exitoso: User={Username} Id={UserId}", username, raw.UserId);
+    //        return Result<LoginRaw>.Success(raw);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        log.LogError(ex, "Error en LoginAsync para {Username}", username);
+    //        return Result<LoginRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al autenticar.", 500));
+    //    }
+    //}
+
+    public async Task<Result<LoginRaw>> LoginAsync(string username,string passwordHash,string? ip,string? userAgent,CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.Login(username, passwordHash, ip, userAgent);
-
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-            // Leer primer RS como dynamic para detectar si es error o datos
-            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
-            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
-
-            if (first is null)
-                return Result<LoginRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta del servidor.", 500));
-
-            // ¿Es una fila de error? (tiene ErrorId y Message, no UserId)
-            if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            return await db.ExecuteAsync(async conn =>
             {
-                var eid = Convert.ToInt32(first["ErrorId"]);
-                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
-                return Result<LoginRaw>.Failure(MapAuthError(eid, msg));
-            }
+                var prms = AuthSpParameters.Login(username,passwordHash,ip,userAgent);
 
-            // RS1 = datos del usuario → mapear
-            var raw = MapToLoginRaw(first);
+                using var multi = await conn.QueryMultipleAsync(StoredProcedures.Auth,prms,commandType: CommandType.StoredProcedure);
 
-            // RS2 = output row (ignorar, ya tenemos éxito)
-            _ = await ReadOutputAsync(multi);
+                // RS1 = Datos del usuario o Error
+                var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+                var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
 
-            log.LogInformation("Login exitoso: User={Username} Id={UserId}", username, raw.UserId);
-            return Result<LoginRaw>.Success(raw);
+                if (first is null)
+                {
+                    return Result<LoginRaw>.Failure(
+                        new ResultError(ErrorCodes.ErrorInesperado,"Sin respuesta del servidor.",500)
+                        );
+                }
+
+                // ¿El SP devolvió un error?
+                if (first.ContainsKey("ErrorId") &&!first.ContainsKey("UserId"))
+                {
+                    var errorId = Convert.ToInt32(first["ErrorId"]);
+
+                    var message = first.TryGetValue("Message", out var msg)
+                        ? msg?.ToString() ?? string.Empty
+                        : string.Empty;
+
+                    return Result<LoginRaw>.Failure(
+                        MapAuthError(errorId, message));
+                }
+
+                // Mapear usuario
+                var raw = MapToLoginRaw(first);
+
+                // RS2 = OUTPUT (ErrorId, Message)
+                _ = await ReadOutputAsync(multi);
+
+                log.LogInformation("Login exitoso. Username={Username}, UserId={UserId}",username,raw.UserId);
+
+                return Result<LoginRaw>.Success(raw);
+
+            }, ct);
+        }
+        catch (OperationCanceledException)
+        {
+            log.LogWarning( "Login cancelado para el usuario {Username}",username);
+
+            throw;
         }
         catch (Exception ex)
         {
-            log.LogError(ex, "Error en LoginAsync para {Username}", username);
-            return Result<LoginRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al autenticar.", 500));
+            log.LogError(
+                ex,"Error en LoginAsync para {Username}",username);
+
+            return Result<LoginRaw>.Failure(
+                new ResultError(ErrorCodes.ErrorInesperado,"Error interno al autenticar.",500)
+                );
         }
     }
 
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — refreshtoken
     // ─────────────────────────────────────────────────────────────────────────
-    public async Task<Result<RefreshTokenRaw>> RefreshTokenAsync(
-        string refreshToken, string? ip, string? userAgent,
-        CancellationToken ct = default)
+    //public async Task<Result<RefreshTokenRaw>> RefreshTokenAsync(
+    //    string refreshToken, string? ip, string? userAgent,
+    //    CancellationToken ct = default)
+    //{
+    //    try
+    //    {
+    //        var conn = await db.ExecuteAsync(ct);
+    //        var prms = AuthSpParameters.RefreshToken(refreshToken, ip, userAgent);
+
+    //        using var multi = await conn.QueryMultipleAsync(
+    //            StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+    //        var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+    //        var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+    //        if (first is null)
+    //            return Result<RefreshTokenRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta.", 500));
+
+    //        if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+    //        {
+    //            var eid = Convert.ToInt32(first["ErrorId"]);
+    //            var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
+    //            return Result<RefreshTokenRaw>.Failure(MapAuthError(eid, msg));
+    //        }
+
+    //        var raw = MapToRefreshTokenRaw(first);
+    //        _ = await ReadOutputAsync(multi);
+
+    //        log.LogInformation("Refresh token rotado para UserId={UserId}", raw.UserId);
+    //        return Result<RefreshTokenRaw>.Success(raw);
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        log.LogError(ex, "Error en RefreshTokenAsync");
+    //        return Result<RefreshTokenRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al renovar token.", 500));
+    //    }
+    //}
+
+    public async Task<Result<RefreshTokenRaw>> RefreshTokenAsync(string refreshToken,string? ip,string? userAgent,CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.RefreshToken(refreshToken, ip, userAgent);
-
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
-            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
-
-            if (first is null)
-                return Result<RefreshTokenRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta.", 500));
-
-            if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            return await db.ExecuteAsync(async conn =>
             {
-                var eid = Convert.ToInt32(first["ErrorId"]);
-                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
-                return Result<RefreshTokenRaw>.Failure(MapAuthError(eid, msg));
-            }
+                var prms = AuthSpParameters.RefreshToken(refreshToken, ip, userAgent);
+                using var multi = await conn.QueryMultipleAsync(StoredProcedures.Auth,prms,commandType: CommandType.StoredProcedure);
+                var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+                var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
 
-            var raw = MapToRefreshTokenRaw(first);
-            _ = await ReadOutputAsync(multi);
+                if (first is null)
+                {
+                    return Result<RefreshTokenRaw>.Failure(
+                        new ResultError(ErrorCodes.ErrorInesperado,"Sin respuesta.",500));
+                }
 
-            log.LogInformation("Refresh token rotado para UserId={UserId}", raw.UserId);
-            return Result<RefreshTokenRaw>.Success(raw);
+                if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+                {
+                    var eid = Convert.ToInt32(first["ErrorId"]);
+                    var msg = first.TryGetValue("Message", out var m)
+                        ? m?.ToString() ?? string.Empty
+                        : string.Empty;
+
+                    return Result<RefreshTokenRaw>.Failure(
+                        MapAuthError(eid, msg));
+                }
+
+                var raw = MapToRefreshTokenRaw(first);
+
+                _ = await ReadOutputAsync(multi);
+
+                log.LogInformation("Refresh token rotado para UserId={UserId}",raw.UserId);
+
+                return Result<RefreshTokenRaw>.Success(raw);
+
+            }, ct);
         }
         catch (Exception ex)
         {
             log.LogError(ex, "Error en RefreshTokenAsync");
-            return Result<RefreshTokenRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al renovar token.", 500));
+
+            return Result<RefreshTokenRaw>.Failure(
+                new ResultError(
+                    ErrorCodes.ErrorInesperado,
+                    "Error interno al renovar token.",
+                    500));
         }
     }
 
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — logout
     // ─────────────────────────────────────────────────────────────────────────
-    public async Task<Result> LogoutAsync(string? refreshToken, int? userId, CancellationToken ct = default)
+    //public async Task<Result> LogoutAsync(string? refreshToken, int? userId, CancellationToken ct = default)
+    //{
+    //    try
+    //    {
+    //        var conn = await db.ExecuteAsync(ct);
+    //        var prms = AuthSpParameters.Logout(refreshToken, userId);
+
+    //        using var multi = await conn.QueryMultipleAsync(
+    //            StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+    //        // RS1 = { RevokedSessions }
+    //        _ = await multi.ReadAsync<dynamic>();
+
+    //        var (eid, msg) = await ReadOutputAsync(multi);
+    //        if (eid is > 0)
+    //            return Result.Failure(MapAuthError(eid.Value, msg));
+
+    //        return Result.Success();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        log.LogError(ex, "Error en LogoutAsync");
+    //        return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al cerrar sesión.", 500));
+    //    }
+    //}
+    public async Task<Result> LogoutAsync(string? refreshToken,int? userId,CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.Logout(refreshToken, userId);
+            return await db.ExecuteAsync(async conn =>
+            {
+                var prms = AuthSpParameters.Logout(refreshToken, userId);
 
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+                using var multi = await conn.QueryMultipleAsync(StoredProcedures.Auth,prms,commandType: CommandType.StoredProcedure);
 
-            // RS1 = { RevokedSessions }
-            _ = await multi.ReadAsync<dynamic>();
+                // RS1 = { RevokedSessions }
+                _ = await multi.ReadAsync<dynamic>();
 
-            var (eid, msg) = await ReadOutputAsync(multi);
-            if (eid is > 0)
-                return Result.Failure(MapAuthError(eid.Value, msg));
+                var (eid, msg) = await ReadOutputAsync(multi);
 
-            return Result.Success();
+                if (eid is > 0)
+                {
+                    return Result.Failure(MapAuthError(eid.Value, msg));
+                }
+
+                log.LogInformation("Logout exitoso. UserId={UserId}, RefreshToken={RefreshToken}",userId,refreshToken);
+                return Result.Success();
+
+            }, ct);
         }
         catch (Exception ex)
         {
-            log.LogError(ex, "Error en LogoutAsync");
-            return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al cerrar sesión.", 500));
+            log.LogError(ex,"Error en LogoutAsync. UserId={UserId}",userId);
+
+            return Result.Failure(
+                new ResultError(ErrorCodes.ErrorInesperado,"Error interno al cerrar sesión.",500)
+                );
         }
     }
-
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — revokeaccesstoken
     // ─────────────────────────────────────────────────────────────────────────
-    public async Task<Result> RevokeAccessTokenAsync(
-        string jti, DateTime accessTokenExp, int? userId, string? reason,
-        CancellationToken ct = default)
+    //public async Task<Result> RevokeAccessTokenAsync(
+    //    string jti, DateTime accessTokenExp, int? userId, string? reason,
+    //    CancellationToken ct = default)
+    //{
+    //    try
+    //    {
+    //        var conn = await db.ExecuteAsync(ct);
+    //        var prms = AuthSpParameters.RevokeAccessToken(jti, accessTokenExp, userId, reason);
+
+    //        using var multi = await conn.QueryMultipleAsync(
+    //            StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+
+    //        _ = await multi.ReadAsync<dynamic>();   // RS1 = { AlreadyRevoked } o { Inserted }
+    //        var (eid, msg) = await ReadOutputAsync(multi);
+
+    //        if (eid is > 0)
+    //            return Result.Failure(MapAuthError(eid.Value, msg));
+
+    //        return Result.Success();
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        log.LogError(ex, "Error en RevokeAccessTokenAsync jti={Jti}", jti);
+    //        return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al revocar token.", 500));
+    //    }
+    //}
+    public async Task<Result> RevokeAccessTokenAsync(string jti,DateTime accessTokenExp,int? userId,string? reason,CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.RevokeAccessToken(jti, accessTokenExp, userId, reason);
+            return await db.ExecuteAsync(async conn =>
+            {
+                var prms = AuthSpParameters.RevokeAccessToken(jti,accessTokenExp,userId,reason);
 
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+                using var multi = await conn.QueryMultipleAsync(StoredProcedures.Auth,prms,commandType: CommandType.StoredProcedure);
 
-            _ = await multi.ReadAsync<dynamic>();   // RS1 = { AlreadyRevoked } o { Inserted }
-            var (eid, msg) = await ReadOutputAsync(multi);
+                // RS1 = { AlreadyRevoked } o { Inserted }
+                _ = await multi.ReadAsync<dynamic>();
 
-            if (eid is > 0)
-                return Result.Failure(MapAuthError(eid.Value, msg));
+                // RS2 = OUTPUT
+                var (errorId, message) = await ReadOutputAsync(multi);
 
-            return Result.Success();
+                if (errorId is > 0)
+                {
+                    return Result.Failure(
+                        MapAuthError(errorId.Value, message));
+                }
+
+                log.LogInformation("AccessToken revocado correctamente. Jti={Jti}, UserId={UserId}",jti,userId);
+
+                return Result.Success();
+
+            }, ct);
+        }
+        catch (OperationCanceledException)
+        {
+            log.LogWarning("Revocación del AccessToken cancelada. Jti={Jti}",jti);
+
+            throw;
         }
         catch (Exception ex)
         {
-            log.LogError(ex, "Error en RevokeAccessTokenAsync jti={Jti}", jti);
-            return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al revocar token.", 500));
+            log.LogError(ex,"Error en RevokeAccessTokenAsync. Jti={Jti}, UserId={UserId}",jti,userId);
+
+            return Result.Failure(
+                new ResultError(ErrorCodes.ErrorInesperado,"Error al revocar el token.",500)
+                );
         }
     }
 
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — validateblacklist (llamado desde middleware — debe ser MUY rápido)
     // ─────────────────────────────────────────────────────────────────────────
-    public async Task<Result<bool>> IsTokenRevokedAsync(string jti, CancellationToken ct = default)
+    public async Task<Result<bool>> IsTokenRevokedAsync(
+    string jti,
+    CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.ValidateBlacklist(jti);
+            return await db.ExecuteAsync(async conn =>
+            {
+                var prms = AuthSpParameters.ValidateBlacklist(jti);
 
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+                using var multi = await conn.QueryMultipleAsync(
+                    StoredProcedures.Auth,
+                    prms,
+                    commandType: CommandType.StoredProcedure);
 
-            var row = await multi.ReadFirstOrDefaultAsync<dynamic>();
-            bool isRevoked = row is not null && Convert.ToBoolean(((IDictionary<string, object>)row)["IsRevoked"]);
+                var row = await multi.ReadFirstOrDefaultAsync<dynamic>();
 
-            return Result<bool>.Success(isRevoked);
+                bool isRevoked = row is not null &&
+                                 Convert.ToBoolean(((IDictionary<string, object>)row)["IsRevoked"]);
+
+                return Result<bool>.Success(isRevoked);
+
+            }, ct);
+        }
+        catch (OperationCanceledException)
+        {
+            log.LogWarning("Validación de blacklist cancelada. Jti={Jti}", jti);
+            throw;
         }
         catch (Exception ex)
         {
-            log.LogError(ex, "Error en IsTokenRevokedAsync jti={Jti}", jti);
-            // En caso de falla del SP, asumir NO revocado (fail-open) para no bloquear usuarios
+            log.LogError(ex,
+                "Error en IsTokenRevokedAsync Jti={Jti}", jti);
+
+            // Fail Open
             return Result<bool>.Success(false);
         }
     }
@@ -810,74 +1017,136 @@ public sealed class AuthRepository(
     // USERS — createuser
     // ─────────────────────────────────────────────────────────────────────────
     public async Task<Result<UsuarioSistemaRaw>> CrearUsuarioAsync(
-        CrearUsuarioParams p, CancellationToken ct = default)
+    CrearUsuarioParams p,
+    CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.CrearUsuario(p);
-
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
-            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
-
-            if (first is null)
-                return Result<UsuarioSistemaRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta.", 500));
-
-            if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            return await db.ExecuteAsync(async conn =>
             {
-                var eid = Convert.ToInt32(first["ErrorId"]);
-                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
-                return Result<UsuarioSistemaRaw>.Failure(MapAuthError(eid, msg));
-            }
+                var prms = AuthSpParameters.CrearUsuario(p);
 
-            var raw = MapToUsuarioSistemaRaw(first);
-            _ = await ReadOutputAsync(multi);
+                using var multi = await conn.QueryMultipleAsync(
+                    StoredProcedures.Auth,
+                    prms,
+                    commandType: CommandType.StoredProcedure);
 
-            log.LogInformation("Usuario creado: Id={UserId} Username={Username}", raw.UserId, raw.Username);
-            return Result<UsuarioSistemaRaw>.Success(raw);
+                var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+
+                var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+                if (first is null)
+                {
+                    return Result<UsuarioSistemaRaw>.Failure(
+                        new ResultError(
+                            ErrorCodes.ErrorInesperado,
+                            "Sin respuesta.",
+                            500));
+                }
+
+                if (first.ContainsKey("ErrorId") &&
+                    !first.ContainsKey("UserId"))
+                {
+                    var eid = Convert.ToInt32(first["ErrorId"]);
+
+                    var msg = first.TryGetValue("Message", out var m)
+                        ? m?.ToString() ?? string.Empty
+                        : string.Empty;
+
+                    return Result<UsuarioSistemaRaw>.Failure(
+                        MapAuthError(eid, msg));
+                }
+
+                var raw = MapToUsuarioSistemaRaw(first);
+
+                _ = await ReadOutputAsync(multi);
+
+                log.LogInformation(
+                    "Usuario creado: Id={UserId} Username={Username}",
+                    raw.UserId,
+                    raw.Username);
+
+                return Result<UsuarioSistemaRaw>.Success(raw);
+
+            }, ct);
         }
         catch (Exception ex)
         {
-            log.LogError(ex, "Error en CrearUsuarioAsync Username={Username}", p.Username);
-            return Result<UsuarioSistemaRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al crear usuario.", 500));
+            log.LogError(ex,
+                "Error en CrearUsuarioAsync Username={Username}",
+                p.Username);
+
+            return Result<UsuarioSistemaRaw>.Failure(
+                new ResultError(
+                    ErrorCodes.ErrorInesperado,
+                    "Error al crear usuario.",
+                    500));
         }
     }
 
     // ─────────────────────────────────────────────────────────────────────────
     // USERS — deactivateuser
     // ─────────────────────────────────────────────────────────────────────────
-    public async Task<Result> DarDeBajaAsync(int userId, string reason, int operatedBy, CancellationToken ct = default)
+    public async Task<Result> DarDeBajaAsync(
+     int userId,
+     string reason,
+     int operatedBy,
+     CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.DarDeBaja(userId, reason, operatedBy);
-
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
-            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
-
-            if (first is not null && first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            return await db.ExecuteAsync(async conn =>
             {
-                var eid = Convert.ToInt32(first["ErrorId"]);
-                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
-                return Result.Failure(MapAuthError(eid, msg));
-            }
+                var prms = AuthSpParameters.DarDeBaja(
+                    userId,
+                    reason,
+                    operatedBy);
 
-            _ = await ReadOutputAsync(multi);
+                using var multi = await conn.QueryMultipleAsync(
+                    StoredProcedures.Auth,
+                    prms,
+                    commandType: CommandType.StoredProcedure);
 
-            log.LogWarning("Usuario dado de baja: Id={UserId} Por={OperatedBy} Motivo={Reason}", userId, operatedBy, reason);
-            return Result.Success();
+                var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+
+                var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+                if (first is not null &&
+                    first.ContainsKey("ErrorId") &&
+                    !first.ContainsKey("UserId"))
+                {
+                    var eid = Convert.ToInt32(first["ErrorId"]);
+
+                    var msg = first.TryGetValue("Message", out var m)
+                        ? m?.ToString() ?? string.Empty
+                        : string.Empty;
+
+                    return Result.Failure(
+                        MapAuthError(eid, msg));
+                }
+
+                _ = await ReadOutputAsync(multi);
+
+                log.LogWarning(
+                    "Usuario dado de baja: Id={UserId} OperadoPor={OperatedBy}",
+                    userId,
+                    operatedBy);
+
+                return Result.Success();
+
+            }, ct);
         }
         catch (Exception ex)
         {
-            log.LogError(ex, "Error en DarDeBajaAsync UserId={UserId}", userId);
-            return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al dar de baja el usuario.", 500));
+            log.LogError(ex,
+                "Error en DarDeBajaAsync UserId={UserId}",
+                userId);
+
+            return Result.Failure(
+                new ResultError(
+                    ErrorCodes.ErrorInesperado,
+                    "Error al dar de baja el usuario.",
+                    500));
         }
     }
 
@@ -885,34 +1154,57 @@ public sealed class AuthRepository(
     // USERS — getuser
     // ─────────────────────────────────────────────────────────────────────────
     public async Task<Result<UsuarioSistemaRaw?>> ObtenerUsuarioAsync(
-        int? userId, string? username, CancellationToken ct = default)
+    int? userId,
+    string? username,
+    CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.ObtenerUsuario(userId, username);
-
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-            var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
-            var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
-
-            if (first is null) return Result<UsuarioSistemaRaw?>.Success(null);
-
-            if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
+            return await db.ExecuteAsync(async conn =>
             {
-                var eid = Convert.ToInt32(first["ErrorId"]);
-                var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
-                return Result<UsuarioSistemaRaw?>.Failure(MapAuthError(eid, msg));
-            }
+                var prms = AuthSpParameters.ObtenerUsuario(
+                    userId,
+                    username);
 
-            return Result<UsuarioSistemaRaw?>.Success(MapToUsuarioSistemaRaw(first));
+                using var multi = await conn.QueryMultipleAsync(
+                    StoredProcedures.Auth,
+                    prms,
+                    commandType: CommandType.StoredProcedure);
+
+                var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
+
+                var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
+
+                if (first is null)
+                    return Result<UsuarioSistemaRaw?>.Success(null);
+
+                if (first.ContainsKey("ErrorId") &&
+                    !first.ContainsKey("UserId"))
+                {
+                    var eid = Convert.ToInt32(first["ErrorId"]);
+
+                    var msg = first.TryGetValue("Message", out var m)
+                        ? m?.ToString() ?? string.Empty
+                        : string.Empty;
+
+                    return Result<UsuarioSistemaRaw?>.Failure(
+                        MapAuthError(eid, msg));
+                }
+
+                return Result<UsuarioSistemaRaw?>.Success(
+                    MapToUsuarioSistemaRaw(first));
+
+            }, ct);
         }
         catch (Exception ex)
         {
             log.LogError(ex, "Error en ObtenerUsuarioAsync");
-            return Result<UsuarioSistemaRaw?>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al obtener usuario.", 500));
+
+            return Result<UsuarioSistemaRaw?>.Failure(
+                new ResultError(
+                    ErrorCodes.ErrorInesperado,
+                    "Error al obtener usuario.",
+                    500));
         }
     }
 
@@ -920,57 +1212,96 @@ public sealed class AuthRepository(
     // USERS — listusers
     // ─────────────────────────────────────────────────────────────────────────
     public async Task<Result<(IEnumerable<UsuarioSistemaListaRaw> Items, int Total)>> ListarUsuariosAsync(
-        int? roleId, int? branchId, int pageNumber, int pageSize, CancellationToken ct = default)
+    int? roleId,
+    int? branchId,
+    int pageNumber,
+    int pageSize,
+    CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.ListarUsuarios(roleId, branchId, pageNumber, pageSize);
+            return await db.ExecuteAsync(async conn =>
+            {
+                var prms = AuthSpParameters.ListarUsuarios(
+                    roleId,
+                    branchId,
+                    pageNumber,
+                    pageSize);
 
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+                using var multi = await conn.QueryMultipleAsync(
+                    StoredProcedures.Auth,
+                    prms,
+                    commandType: CommandType.StoredProcedure);
 
-            var rows = (await multi.ReadAsync<UsuarioSistemaListaRaw>()).ToList();
-            _ = await ReadOutputAsync(multi);
+                var rows = (await multi.ReadAsync<UsuarioSistemaListaRaw>()).ToList();
 
-            int total = rows.FirstOrDefault()?.TotalRecords ?? 0;
-            return Result<(IEnumerable<UsuarioSistemaListaRaw>, int)>.Success((rows, total));
+                _ = await ReadOutputAsync(multi);
+
+                int total = rows.FirstOrDefault()?.TotalRecords ?? 0;
+
+                return Result<(IEnumerable<UsuarioSistemaListaRaw>, int)>
+                    .Success((rows, total));
+
+            }, ct);
         }
         catch (Exception ex)
         {
             log.LogError(ex, "Error en ListarUsuariosAsync");
-            return Result<(IEnumerable<UsuarioSistemaListaRaw>, int)>.Failure(
-                new ResultError(ErrorCodes.ErrorInesperado, "Error al listar usuarios.", 500));
+
+            return Result<(IEnumerable<UsuarioSistemaListaRaw>, int)>
+                .Failure(
+                    new ResultError(
+                        ErrorCodes.ErrorInesperado,
+                        "Error al listar usuarios.",
+                        500));
         }
     }
 
     // ─────────────────────────────────────────────────────────────────────────
     // MAINTENANCE — purgetokens
     // ─────────────────────────────────────────────────────────────────────────
-    public async Task<Result<PurgaTokensRaw>> PurgarTokensAsync(CancellationToken ct = default)
+    public async Task<Result<PurgaTokensRaw>> PurgarTokensAsync(
+    CancellationToken ct = default)
     {
         try
         {
-            var conn = await db.GetConnectionAsync(ct);
-            var prms = AuthSpParameters.PurgarTokens();
+            return await db.ExecuteAsync(async conn =>
+            {
+                var prms = AuthSpParameters.PurgarTokens();
 
-            using var multi = await conn.QueryMultipleAsync(
-                StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
+                using var multi = await conn.QueryMultipleAsync(
+                    StoredProcedures.Auth,
+                    prms,
+                    commandType: CommandType.StoredProcedure);
 
-            var row = await multi.ReadFirstOrDefaultAsync<PurgaTokensRaw>();
-            _ = await ReadOutputAsync(multi);
+                var row = await multi.ReadFirstOrDefaultAsync<PurgaTokensRaw>();
 
-            log.LogInformation("Purga de tokens ejecutada: Refresh={R} Access={A}",
-                row?.PurgedRefreshTokens, row?.PurgedAccessTokens);
+                _ = await ReadOutputAsync(multi);
 
-            return row is not null
-                ? Result<PurgaTokensRaw>.Success(row)
-                : Result<PurgaTokensRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta de purga.", 500));
+                log.LogInformation(
+                    "Purga ejecutada: Refresh={Refresh} Access={Access}",
+                    row?.PurgedRefreshTokens,
+                    row?.PurgedAccessTokens);
+
+                return row is not null
+                    ? Result<PurgaTokensRaw>.Success(row)
+                    : Result<PurgaTokensRaw>.Failure(
+                        new ResultError(
+                            ErrorCodes.ErrorInesperado,
+                            "Sin respuesta de purga.",
+                            500));
+
+            }, ct);
         }
         catch (Exception ex)
         {
             log.LogError(ex, "Error en PurgarTokensAsync");
-            return Result<PurgaTokensRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error en purga de tokens.", 500));
+
+            return Result<PurgaTokensRaw>.Failure(
+                new ResultError(
+                    ErrorCodes.ErrorInesperado,
+                    "Error en purga de tokens.",
+                    500));
         }
     }
 

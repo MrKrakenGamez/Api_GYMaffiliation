@@ -8,6 +8,9 @@ using GymAffiliate.Application.UseCases.Pagos;
 using GymAffiliate.Application.UseCases.Reportes;
 using GymAffiliate.Application.Common.Mappings;
 using Microsoft.Extensions.DependencyInjection;
+using GymAffiliate.Application.UseCases.Auth;
+using GymAffiliate.Application.DTOs.Requests;
+using GymAffiliate.Application.Validations;
 
 namespace GymAffiliate.Application;
 
@@ -45,6 +48,22 @@ public static class ApplicationExtensions
 
         services.AddTransient<ReporteIngresosHandler>();
         services.AddTransient<AfiliadosActivosHandler>();
+
+        // Auth handlers
+        services.AddTransient<LoginHandler>();
+        services.AddTransient<RefreshTokenHandler>();
+        services.AddTransient<LogoutHandler>();
+        services.AddTransient<CrearUsuarioHandler>();
+        services.AddTransient<DarDeBajaUsuarioHandler>();
+        services.AddTransient<ObtenerUsuarioHandler>();
+        services.AddTransient<ListarUsuariosHandler>();
+        services.AddTransient<PurgarTokensHandler>();
+
+        // Auth validators
+        services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
+        services.AddTransient<IValidator<RefreshTokenRequest>, RefreshTokenRequestValidator>();
+        services.AddTransient<IValidator<CrearUsuarioRequest>, CrearUsuarioRequestValidator>();
+        services.AddTransient<IValidator<DarDeBajaRequest>, DarDeBajaRequestValidator>();
 
         return services;
     }

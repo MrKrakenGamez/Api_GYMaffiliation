@@ -1084,7 +1084,6 @@
           "FluentValidation": "12.1.1",
           "FluentValidation.DependencyInjectionExtensions": "12.1.1",
           "GymAffiliate.Domain": "1.0.0",
-          "GymAffiliate.Infrastructure": "1.0.0",
           "GymAffiliate.Shared": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "8.0.1",
           "Microsoft.Data.SqlClient": "7.0.1",
@@ -3196,16 +3195,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1108",
-      "level": "Error",
-      "message": "Ciclo detectado. \r\n  GymAffiliate.Infrastructure -> GymAffiliate.Application -> GymAffiliate.Infrastructure.",
-      "libraryId": "GymAffiliate.Infrastructure",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

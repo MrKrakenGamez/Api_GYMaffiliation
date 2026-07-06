@@ -122,7 +122,8 @@ try
     // ── Middleware pipeline ───────────────────────────────────────────────────
 
     // 1. Global exception handler (siempre primero)
-    app.UseMiddleware<GlobalExceptionMiddleware>();
+    //app.UseMiddleware<GlobalExceptionMiddleware>();
+    app.UseMiddleware<JwtBlacklistMiddleware>();
 
     // 2. Swagger (solo en Development)
     if (app.Environment.IsDevelopment())

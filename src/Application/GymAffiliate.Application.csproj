@@ -8,7 +8,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Domain\GymAffiliate.Domain.csproj" />
     <ProjectReference Include="..\Shared\GymAffiliate.Shared.csproj" />
-	<ProjectReference Include="..\Infrastructure\GymAffiliate.Infrastructure.csproj"/>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="16.1.1" />

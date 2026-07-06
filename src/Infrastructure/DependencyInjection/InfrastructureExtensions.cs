@@ -1,14 +1,18 @@
-using System.Text;
 using GymAffiliate.Application.UseCases.Auth;
 using GymAffiliate.Domain.Interfaces.Repositories;
+using GymAffiliate.Domain.Interfaces.Services;
 using GymAffiliate.Infrastructure.Configuration;
 using GymAffiliate.Infrastructure.Persistence.Dapper.Context;
 using GymAffiliate.Infrastructure.Persistence.Repositories;
+using GymAffiliate.Infrastructure.Services;
+using GymAffiliate.Shared.Constants;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace GymAffiliate.Infrastructure.DependencyInjection;
 
@@ -46,22 +50,29 @@ public static class InfrastructureExtensions
         services.AddScoped<INotificacionRepository, NotificacionRepository>();
         services.AddScoped<ISucursalRepository,    SucursalRepository>();
         services.AddScoped<IReporteRepository,     ReporteRepository>();
+        services.AddScoped<IAuthRepository, AuthRepository>();
+
         // Auth
-           services.AddScoped<IAuthRepository, AuthRepository>();
-           services.AddSingleton<TokenService>();
+        services.AddScoped<IAuthRepository, AuthRepository>();
+        //services.AddSingleton<TokenService>();
+        services.AddSingleton<ITokenService, TokenService>();
+
+
+
 
         // ── JWT Authentication (prepared, toggle with UseJwt flag) ────────
         var authOpts = configuration.GetSection(AuthOptions.Section).Get<AuthOptions>() ?? new AuthOptions();
 
           // JWT Authentication
-    var jwtSettings = configuration.GetSection("Auth:JwtSettings").Get<JwtSettings>()!;
+        var jwtSettings = configuration.GetSection("Auth:JwtSettings").Get<JwtSettings>()!;
         services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(opts =>
             {
                 opts.TokenValidationParameters = new TokenService(
                     Microsoft.Extensions.Options.Options.Create(
-                        configuration.GetSection(AuthOptions.Section).Get<AuthOptions>()!))
-                    .GetValidationParameters();
+                                configuration.GetSection(AuthOptions.Section).Get<AuthOptions>()!
+                                )
+                    ).GetValidationParameters();
 
                 opts.Events = new JwtBearerEvents
                 {
@@ -83,6 +94,15 @@ public static class InfrastructureExtensions
                 };
             });
 
+        // Authorization Policies
+        services.AddAuthorization(opts =>
+        {
+            opts.AddPolicy(Policies.SuperAdminOnly, p => p.RequireRole(Roles.SuperAdmin));
+            opts.AddPolicy(Policies.AdminOnly, p => p.RequireRole(Roles.SuperAdmin, Roles.Admin));
+            opts.AddPolicy(Policies.ReceptionOrAdmin, p => p.RequireRole(Roles.SuperAdmin, Roles.Admin, Roles.Reception));
+            opts.AddPolicy(Policies.AnyRole, p => p.RequireAuthenticatedUser());
+            opts.AddPolicy(Shared.Constants.Policies.SuperAdminOnly, p => p.RequireRole(Shared.Constants.Roles.SuperAdmin));
+        });
 
         if (authOpts.UseJwt && !string.IsNullOrWhiteSpace(authOpts.JwtSettings.Secret))
         {

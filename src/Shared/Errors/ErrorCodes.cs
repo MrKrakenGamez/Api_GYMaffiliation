@@ -24,10 +24,15 @@ public static class ErrorCodes
     public const string ErrorInesperado          = "SY_901";
     public const string ErrorValidacion          = "VAL_001";
     //auth errors
-    public const string CredencialesInvalidas    = "CI_021";
-    public const string UsuarioInactivo          = "UI_022";
-    public const string UsuarioNoEncontrado      = "UNE_023";
-    public const string UsuarioDuplicado         = "UD_024";
+    public const string CredencialesInvalidas    = "AU_101";
+    public const string UsuarioInactivo          = "AU_104";
+    public const string UsuarioNoEncontrado      = "AU_107";
+    public const string UsuarioDuplicado         = "AU_105";
+    public const string TokenInvalido            = "AU_102";
+    public const string TokenExpirado            = "AU_103";
+    public const string RolNoEncontrado          = "AU_106";
+    public const string BajaPropia               = "AU_108";
+    public const string UsuarioYaInactivo        = "AU_109";
 }
 
 public static class SpErrorMapper

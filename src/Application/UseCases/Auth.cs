@@ -2,19 +2,11 @@
 using GymAffiliate.Application.DTOs.Requests;
 using GymAffiliate.Application.DTOs.Responses;
 using GymAffiliate.Domain.Interfaces.Repositories;
-using GymAffiliate.Infrastructure.Configuration;
 using GymAffiliate.Shared.Errors;
 using GymAffiliate.Shared.Result;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Security.Cryptography;
-using System.Text;
-using ClaimTypes = GymAffiliate.Shared.Constants.ClaimTypes;
+using GymAffiliate.Domain.Interfaces.Services;
 using LoginRequest = GymAffiliate.Application.DTOs.Requests.LoginRequest;
-
 
 
 namespace GymAffiliate.Application.UseCases.Auth;
@@ -24,81 +16,81 @@ namespace GymAffiliate.Application.UseCases.Auth;
 // Registrar como Singleton en DI.
 // =============================================================================
 
-public sealed class TokenService(IOptions<AuthOptions> opts)
-{
-    private readonly JwtSettings _jwt = opts.Value.JwtSettings;
+//public sealed class TokenService(IOptions<AuthOptions> opts)
+//{
+//    private readonly JwtSettings _jwt = opts.Value.JwtSettings;
 
-    /// <summary>
-    /// Genera el Access Token (JWT) firmado con los claims del usuario.
-    /// Vigencia configurable en appsettings (ExpirationMinutes).
-    /// </summary>
+//    /// <summary>
+//    /// Genera el Access Token (JWT) firmado con los claims del usuario.
+//    /// Vigencia configurable en appsettings (ExpirationMinutes).
+//    /// </summary>
     
-    public(string Token, string Jti, DateTime Expiry) GenerateAccessToken( int userId,string username, string roleCode
-        , string roleName,string fullName, int? branchId)
-    {
-        var jti = Guid.NewGuid().ToString("N");
-        var expiry = DateTime.UtcNow.AddMinutes(_jwt.ExpirationMinutes);
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret));
-        var creds = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
+//    public(string Token, string Jti, DateTime Expiry) GenerateAccessToken( int userId,string username, string roleCode
+//        , string roleName,string fullName, int? branchId)
+//    {
+//        var jti = Guid.NewGuid().ToString("N");
+//        var expiry = DateTime.UtcNow.AddMinutes(_jwt.ExpirationMinutes);
+//        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret));
+//        var creds = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
 
-        var claims = new List<Claim>
-        {
-            new(JwtRegisteredClaimNames.Jti, jti),
-            new(JwtRegisteredClaimNames.Sub, userId.ToString()),
-            new(JwtRegisteredClaimNames.Name,username),
-            new(ClaimTypes.UserId,userId.ToString()),
-            new(ClaimTypes.RoleCode,roleCode),
-            new(ClaimTypes.FullName, fullName),
-            new(System.Security.Claims.ClaimTypes.Role,roleCode),
+//        var claims = new List<Claim>
+//        {
+//            new(JwtRegisteredClaimNames.Jti, jti),
+//            new(JwtRegisteredClaimNames.Sub, userId.ToString()),
+//            new(JwtRegisteredClaimNames.Name,username),
+//            new(ClaimTypes.UserId,userId.ToString()),
+//            new(ClaimTypes.RoleCode,roleCode),
+//            new(ClaimTypes.FullName, fullName),
+//            new(System.Security.Claims.ClaimTypes.Role,roleCode),
 
-        };
+//        };
 
-        if (branchId.HasValue)
-            claims.Add(new(ClaimTypes.BranchId, branchId.Value.ToString()));
+//        if (branchId.HasValue)
+//            claims.Add(new(ClaimTypes.BranchId, branchId.Value.ToString()));
 
-        var token = new JwtSecurityToken(
-            issuer: _jwt.Issuer,
-            audience: _jwt.Audience,
-            claims: claims,
-            notBefore: DateTime.UtcNow,
-            expires: expiry,
-            signingCredentials: creds
-            );
-        return (new JwtSecurityTokenHandler().WriteToken(token), jti, expiry);
-    }
-    /// <summary>
-    /// Genera un Refresh Token seguro: 3 GUIDs concatenados sin guiones.
-    /// No se firma — es opaco y se valida contra la BD.
-    /// </summary>
+//        var token = new JwtSecurityToken(
+//            issuer: _jwt.Issuer,
+//            audience: _jwt.Audience,
+//            claims: claims,
+//            notBefore: DateTime.UtcNow,
+//            expires: expiry,
+//            signingCredentials: creds
+//            );
+//        return (new JwtSecurityTokenHandler().WriteToken(token), jti, expiry);
+//    }
+//    /// <summary>
+//    /// Genera un Refresh Token seguro: 3 GUIDs concatenados sin guiones.
+//    /// No se firma — es opaco y se valida contra la BD.
+//    /// </summary>
 
-    public static string GenerateRefreshToken() =>
-        Convert.ToBase64String(RandomNumberGenerator.GetBytes(64))
-            .Replace("+", "-")
-            .Replace("/", "_")
-            .TrimEnd('=');
-    /// <summary>Hashea la contraseña con SHA-256 (compatible con el esquema existente en SystemUsers).</summary>
+//    public static string GenerateRefreshToken() =>
+//        Convert.ToBase64String(RandomNumberGenerator.GetBytes(64))
+//            .Replace("+", "-")
+//            .Replace("/", "_")
+//            .TrimEnd('=');
+//    /// <summary>Hashea la contraseña con SHA-256 (compatible con el esquema existente en SystemUsers).</summary>
 
-    public static string HashPassword(string password) =>
-        Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(password))).ToLower();
+//    public static string HashPassword(string password) =>
+//        Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(password))).ToLower();
 
-    // ── Nota sobre hashing ──────────────────────────────────────────────────
-    // SHA-256 plano es simple pero no tiene salt. Si en el futuro se quiere
-    // migrar a BCrypt o PBKDF2 (recomendado), solo cambia este método y
-    // el campo PasswordSalt ya existe en SystemUsers para soportarlo.
-    // ────────────────────────────────────────────────────────────────────────
+//    // ── Nota sobre hashing ──────────────────────────────────────────────────
+//    // SHA-256 plano es simple pero no tiene salt. Si en el futuro se quiere
+//    // migrar a BCrypt o PBKDF2 (recomendado), solo cambia este método y
+//    // el campo PasswordSalt ya existe en SystemUsers para soportarlo.
+//    // ────────────────────────────────────────────────────────────────────────
 
-    public TokenValidationParameters GetValidationParameters() => new()
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidateLifetime = true,
-        ValidateIssuerSigningKey = true,
-        ValidIssuer = _jwt.Issuer,
-        ValidAudience = _jwt.Audience,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret)),
-        ClockSkew = TimeSpan.FromSeconds(30),
-    };
-}
+//    public TokenValidationParameters GetValidationParameters() => new()
+//    {
+//        ValidateIssuer = true,
+//        ValidateAudience = true,
+//        ValidateLifetime = true,
+//        ValidateIssuerSigningKey = true,
+//        ValidIssuer = _jwt.Issuer,
+//        ValidAudience = _jwt.Audience,
+//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret)),
+//        ClockSkew = TimeSpan.FromSeconds(30),
+//    };
+//}
 
 // =============================================================================
 // LoginHandler
@@ -106,7 +98,7 @@ public sealed class TokenService(IOptions<AuthOptions> opts)
 public sealed class LoginHandler(
      IAuthRepository repo,
      IValidator<LoginRequest> validator,
-     TokenService tokenService,
+     ITokenService itokenService,
      ILogger<LoginHandler> log
     )
 {
@@ -126,7 +118,9 @@ public sealed class LoginHandler(
                 new ResultError(ErrorCodes.ErrorValidacion, "Errores de validación.", 422, errors));
         }
         // 2. Hashear contraseña y validar en BD
-        var passwordHash = TokenService.HashPassword(request.Password);
+        //var passwordHash = itokenService.HashPassword(request.Password);
+        var passwordHash = request.Password;
+
         var loginResult = await repo.LoginAsync(request.Username, passwordHash, ip, userAgent, ct);
 
         if (loginResult.IsFailure)
@@ -135,12 +129,12 @@ public sealed class LoginHandler(
         var user = loginResult.Value;
 
         // 3. Generar Access Token
-        var (accessToken, jti, accessExpiry) = tokenService.GenerateAccessToken(
+        var (accessToken, jti, accessExpiry) = itokenService.GenerateAccessToken(
             user.UserId, user.Username, user.RoleCode, user.RoleName, user.FullName, user.BranchId
             );
 
         // 4. Guardar Refresh Token en BD
-        var refreshToken = TokenService.GenerateRefreshToken();
+        var refreshToken = itokenService.GenerateRefreshToken();
         var refreshExpiry = DateTime.UtcNow.AddDays(30);
 
         /*
@@ -195,7 +189,7 @@ public sealed class LoginHandler(
 public sealed class RefreshTokenHandler(
     IAuthRepository repo,
     IValidator<RefreshTokenRequest> validator,
-    TokenService tokenService,
+    ITokenService itokenService,
     ILogger<RefreshTokenHandler> log
     )
 {
@@ -219,7 +213,7 @@ public sealed class RefreshTokenHandler(
         var data = result.Value;
 
         // Generar nuevo Access Token con los datos del usuario
-        var (accessToken, _, accessExpiry) = tokenService.GenerateAccessToken(
+        var (accessToken, _, accessExpiry) = itokenService.GenerateAccessToken(
             data.UserId, data.Username, data.RoleCode, data.RoleName, data.FullName, data.BranchId
             );
 
@@ -266,7 +260,9 @@ public sealed class LogoutHandler(IAuthRepository repo, ILogger<LogoutHandler> l
 public sealed class CrearUsuarioHandler(
     IAuthRepository repo,
     IValidator<CrearUsuarioRequest> validator,
-    ILogger<CrearUsuarioHandler> log)
+    ILogger<CrearUsuarioHandler> log,
+    ITokenService itokenService
+    )
 {
     public async Task<Result<UsuarioSistemaResponse>> HandleAsync(
         CrearUsuarioRequest request, int operatedBy,
@@ -282,7 +278,7 @@ public sealed class CrearUsuarioHandler(
                 new ResultError(ErrorCodes.ErrorValidacion, "Errores de validación.", 422, errors));
         }
 
-        var passwordHash = TokenService.HashPassword(request.Password);
+        var passwordHash = itokenService.HashPassword(request.Password);
 
         var result = await repo.CrearUsuarioAsync(new CrearUsuarioParams(
             request.Username, passwordHash, request.FullName,

@@ -3,36 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\application\\usecases\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|solutionrelative:src\\application\\usecases\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\application\\validations\\authvalidators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|solutionrelative:src\\application\\validations\\authvalidators.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\infrastructure\\persistence\\repositories\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|solutionrelative:src\\infrastructure\\persistence\\repositories\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\application\\dtos\\responses\\responses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|solutionrelative:src\\application\\dtos\\responses\\responses.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\application\\dtos\\requests\\requests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|solutionrelative:src\\application\\dtos\\requests\\requests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000001}|src\\Domain\\GymAffiliate.Domain.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\domain\\interfaces\\repositories\\irepositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000001}|src\\Domain\\GymAffiliate.Domain.csproj|solutionrelative:src\\domain\\interfaces\\repositories\\irepositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\application\\usecases\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000003}|src\\Application\\GymAffiliate.Application.csproj|solutionrelative:src\\application\\usecases\\auth.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000005}|src\\Api\\GymAffiliate.Api.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000005}|src\\Api\\GymAffiliate.Api.csproj|solutionrelative:src\\api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\infrastructure\\persistence\\repositories\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|solutionrelative:src\\infrastructure\\persistence\\repositories\\repositories.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\infrastructure\\persistence\\dapper\\parameters\\spparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|solutionrelative:src\\infrastructure\\persistence\\dapper\\parameters\\spparameters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000002}|src\\Shared\\GymAffiliate.Shared.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\shared\\constants\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000002}|src\\Shared\\GymAffiliate.Shared.csproj|solutionrelative:src\\shared\\constants\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\infrastructure\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|solutionrelative:src\\infrastructure\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000005}|src\\Api\\GymAffiliate.Api.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\api\\controllers\\controllers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000005}|src\\Api\\GymAffiliate.Api.csproj|solutionrelative:src\\api\\controllers\\controllers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|c:\\users\\miguel angel\\documents\\desarrollosc#\\gymaffiliate_api\\gymaffiliate\\src\\infrastructure\\dependencyinjection\\infrastructureextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{11111111-0000-0000-0000-000000000004}|src\\Infrastructure\\GymAffiliate.Infrastructure.csproj|solutionrelative:src\\infrastructure\\dependencyinjection\\infrastructureextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -42,71 +46,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Auth.cs",
-              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\UseCases\\Auth.cs",
-              "RelativeDocumentMoniker": "src\\Application\\UseCases\\Auth.cs",
-              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\UseCases\\Auth.cs",
-              "RelativeToolTip": "src\\Application\\UseCases\\Auth.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAqwBIAAAAbAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "InfrastructureExtensions.cs",
+              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\DependencyInjection\\InfrastructureExtensions.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\DependencyInjection\\InfrastructureExtensions.cs",
+              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\DependencyInjection\\InfrastructureExtensions.cs",
+              "RelativeToolTip": "src\\Infrastructure\\DependencyInjection\\InfrastructureExtensions.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAiwDoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T17:31:22.425Z",
+              "WhenOpened": "2026-07-06T13:37:20.483Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "AuthValidators.cs",
               "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\Validations\\AuthValidators.cs",
               "RelativeDocumentMoniker": "src\\Application\\Validations\\AuthValidators.cs",
               "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\Validations\\AuthValidators.cs",
               "RelativeToolTip": "src\\Application\\Validations\\AuthValidators.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEwAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAqwBIAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T17:16:50.99Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Responses.cs",
-              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\DTOs\\Responses\\Responses.cs",
-              "RelativeDocumentMoniker": "src\\Application\\DTOs\\Responses\\Responses.cs",
-              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\DTOs\\Responses\\Responses.cs",
-              "RelativeToolTip": "src\\Application\\DTOs\\Responses\\Responses.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAANoAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T17:14:13.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Requests.cs",
-              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\DTOs\\Requests\\Requests.cs",
-              "RelativeDocumentMoniker": "src\\Application\\DTOs\\Requests\\Requests.cs",
-              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\DTOs\\Requests\\Requests.cs",
-              "RelativeToolTip": "src\\Application\\DTOs\\Requests\\Requests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T17:12:54.97Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Repositories.cs",
-              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Persistence\\Repositories\\Repositories.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\Persistence\\Repositories\\Repositories.cs",
-              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Persistence\\Repositories\\Repositories.cs",
-              "RelativeToolTip": "src\\Infrastructure\\Persistence\\Repositories\\Repositories.cs",
-              "ViewState": "AgIAAFUCAAAAAAAAAAAtwGQCAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T17:06:11.978Z",
+              "WhenOpened": "2026-07-06T16:59:07.265Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
@@ -152,40 +119,79 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "SpParameters.cs",
-              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Persistence\\Dapper\\Parameters\\SpParameters.cs",
-              "RelativeDocumentMoniker": "src\\Infrastructure\\Persistence\\Dapper\\Parameters\\SpParameters.cs",
-              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Persistence\\Dapper\\Parameters\\SpParameters.cs",
-              "RelativeToolTip": "src\\Infrastructure\\Persistence\\Dapper\\Parameters\\SpParameters.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAgwCEBAAAAAAAAAAAAAA==",
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\Services\\TokenService.cs",
+              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Services\\TokenService.cs",
+              "RelativeToolTip": "src\\Infrastructure\\Services\\TokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAD8AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T16:31:56.426Z",
+              "WhenOpened": "2026-07-06T16:58:39.098Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Constants.cs",
-              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Shared\\Constants\\Constants.cs",
-              "RelativeDocumentMoniker": "src\\Shared\\Constants\\Constants.cs",
-              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Shared\\Constants\\Constants.cs",
-              "RelativeToolTip": "src\\Shared\\Constants\\Constants.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAQwA4AAAAZAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Requests.cs",
+              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\DTOs\\Requests\\Requests.cs",
+              "RelativeDocumentMoniker": "src\\Application\\DTOs\\Requests\\Requests.cs",
+              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\DTOs\\Requests\\Requests.cs",
+              "RelativeToolTip": "src\\Application\\DTOs\\Requests\\Requests.cs",
+              "ViewState": "AgIAAHAAAAAAAAAAAAAcwHEAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T16:23:41.811Z",
+              "WhenOpened": "2026-07-06T16:57:36.762Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "IRepositories.cs",
-              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Domain\\Interfaces\\Repositories\\IRepositories.cs",
-              "RelativeDocumentMoniker": "src\\Domain\\Interfaces\\Repositories\\IRepositories.cs",
-              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Domain\\Interfaces\\Repositories\\IRepositories.cs",
-              "RelativeToolTip": "src\\Domain\\Interfaces\\Repositories\\IRepositories.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAAAgAAAAAAAAAA==",
+              "Title": "SpParameters.cs",
+              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Persistence\\Dapper\\Parameters\\SpParameters.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\Persistence\\Dapper\\Parameters\\SpParameters.cs",
+              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Persistence\\Dapper\\Parameters\\SpParameters.cs",
+              "RelativeToolTip": "src\\Infrastructure\\Persistence\\Dapper\\Parameters\\SpParameters.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAUwC0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-07-03T16:23:55.97Z",
+              "WhenOpened": "2026-07-06T16:36:45.976Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Auth.cs",
+              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\UseCases\\Auth.cs",
+              "RelativeDocumentMoniker": "src\\Application\\UseCases\\Auth.cs",
+              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Application\\UseCases\\Auth.cs",
+              "RelativeToolTip": "src\\Application\\UseCases\\Auth.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T14:15:49.068Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "src\\Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "src\\Api\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowBcAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T16:03:33.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Repositories.cs",
+              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Persistence\\Repositories\\Repositories.cs",
+              "RelativeDocumentMoniker": "src\\Infrastructure\\Persistence\\Repositories\\Repositories.cs",
+              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\Persistence\\Repositories\\Repositories.cs",
+              "RelativeToolTip": "src\\Infrastructure\\Persistence\\Repositories\\Repositories.cs",
+              "ViewState": "AgIAAOoBAAAAAAAAAADwv3wAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T14:48:48.77Z",
               "EditorCaption": ""
             }
           ]
@@ -197,6 +203,40 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "2153c30c-3d53-40cb-a0e5-de8fb271a7a5",
+        "Display": 0,
+        "X": -655,
+        "Y": 103,
+        "Width": 1907,
+        "Height": 757,
+        "WindowState": 2
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Controllers.cs",
+              "DocumentMoniker": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Api\\Controllers\\Controllers.cs",
+              "RelativeDocumentMoniker": "src\\Api\\Controllers\\Controllers.cs",
+              "ToolTip": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Api\\Controllers\\Controllers.cs",
+              "RelativeToolTip": "src\\Api\\Controllers\\Controllers.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAowEUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-06T15:50:22.136Z",
+              "EditorCaption": ""
             }
           ]
         }

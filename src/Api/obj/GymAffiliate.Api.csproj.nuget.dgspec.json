@@ -77,6 +77,10 @@
               "target": "Package",
               "version": "[10.0.7, )"
             },
+            "Microsoft.IdentityModel.Tokens": {
+              "target": "Package",
+              "version": "[8.19.1, )"
+            },
             "Microsoft.OpenApi": {
               "target": "Package",
               "version": "[1.6.15, )"
@@ -96,6 +100,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[8.19.1, )"
             }
           },
           "imports": [
@@ -152,9 +160,6 @@
             "projectReferences": {
               "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Domain\\GymAffiliate.Domain.csproj": {
                 "projectPath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Domain\\GymAffiliate.Domain.csproj"
-              },
-              "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\GymAffiliate.Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Infrastructure\\GymAffiliate.Infrastructure.csproj"
               },
               "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Shared\\GymAffiliate.Shared.csproj": {
                 "projectPath": "C:\\Users\\Miguel Angel\\Documents\\DesarrollosC#\\GymAffiliate_API\\GymAffiliate\\src\\Shared\\GymAffiliate.Shared.csproj"

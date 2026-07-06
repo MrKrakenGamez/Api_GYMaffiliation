@@ -114,3 +114,4 @@ C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\obj\Debug\net8.0\GymAffiliate.Api.pdb
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\obj\Debug\net8.0\GymAffiliate.Api.genruntimeconfig.cache
 C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\obj\Debug\net8.0\ref\GymAffiliate.Api.dll
+C:\Users\Miguel Angel\Documents\DesarrollosC#\GymAffiliate_API\GymAffiliate\src\Api\bin\Debug\net8.0\System.Formats.Asn1.dll
