@@ -682,13 +682,14 @@ public sealed class AuthRepository(
     //    }
     //}
 
-    public async Task<Result<LoginRaw>> LoginAsync(string username,string passwordHash,string? ip,string? userAgent,CancellationToken ct = default)
+    //public async Task<Result<LoginRaw>> LoginAsync(string username,string passwordHash,string? ip,string? userAgent,CancellationToken ct = default)
+    public async Task<Result<LoginRaw>> LoginAsync(string username, string passwordHash, string refreshToken,string? ip, string? userAgent, CancellationToken ct = default)
     {
         try
         {
             return await db.ExecuteAsync(async conn =>
             {
-                var prms = AuthSpParameters.Login(username,passwordHash,ip,userAgent);
+                var prms = AuthSpParameters.Login(username,passwordHash, refreshToken, ip,userAgent);
 
                 using var multi = await conn.QueryMultipleAsync(StoredProcedures.Auth,prms,commandType: CommandType.StoredProcedure);
 

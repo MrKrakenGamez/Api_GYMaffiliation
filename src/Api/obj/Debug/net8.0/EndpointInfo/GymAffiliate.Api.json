@@ -1014,6 +1014,11 @@
             "type": "string",
             "nullable": true
           },
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "logoutAll": {
             "type": "boolean"
           }

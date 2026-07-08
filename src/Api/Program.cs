@@ -3,6 +3,7 @@ using GymAffiliate.Application;
 using GymAffiliate.Infrastructure.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using System.IdentityModel.Tokens.Jwt;
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Bootstrap Serilog antes de que inicie el host
@@ -33,6 +34,9 @@ try
                 outputTemplate:
                 "[{Timestamp:yyyy-MM-dd HH:mm:ss} {Level:u3}] {SourceContext} {Message:lj}{NewLine}{Exception}");
     });
+    // Deshabilitar remapeo automático de claims JWT
+    JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
+    JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
     // ── Application layer ────────────────────────────────────────────────────
     builder.Services.AddApplication();
@@ -158,7 +162,9 @@ try
 
     // 6. Auth (orden importa: primero Authentication, luego Authorization)
     app.UseAuthentication();
+    //app.UseMiddleware<JwtBlacklistMiddleware>();   // ← DESPUÉS de Authentication
     app.UseAuthorization();
+
 
     // 7. Map controllers
     app.MapControllers();

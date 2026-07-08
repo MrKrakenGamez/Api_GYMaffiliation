@@ -290,12 +290,24 @@ public static class SpParameters
 
 public static partial class AuthSpParameters
 {
-    public static DynamicParameters Login(string username, string passwordHash, string? ip, string? userAgent)
+    //public static DynamicParameters Login(string username, string passwordHash, string? ip, string? userAgent)
+    //{
+    //    var p = new DynamicParameters();
+    //    p.Add("@Operation", "login");
+    //    p.Add("@Username", username);
+    //    p.Add("@PasswordHash", passwordHash);
+    //    p.Add("@IpAddress", ip);
+    //    p.Add("@UserAgent", userAgent);
+    //    return p;
+    //}
+    public static DynamicParameters Login(string username, string passwordHash,
+    string refreshToken, string? ip, string? userAgent)
     {
         var p = new DynamicParameters();
         p.Add("@Operation", "login");
         p.Add("@Username", username);
         p.Add("@PasswordHash", passwordHash);
+        p.Add("@RefreshToken", refreshToken);   // ← nuevo
         p.Add("@IpAddress", ip);
         p.Add("@UserAgent", userAgent);
         return p;

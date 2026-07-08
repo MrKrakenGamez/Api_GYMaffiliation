@@ -12,87 +12,6 @@ using LoginRequest = GymAffiliate.Application.DTOs.Requests.LoginRequest;
 namespace GymAffiliate.Application.UseCases.Auth;
 
 // =============================================================================
-// TokenService — generación y validación de JWTs
-// Registrar como Singleton en DI.
-// =============================================================================
-
-//public sealed class TokenService(IOptions<AuthOptions> opts)
-//{
-//    private readonly JwtSettings _jwt = opts.Value.JwtSettings;
-
-//    /// <summary>
-//    /// Genera el Access Token (JWT) firmado con los claims del usuario.
-//    /// Vigencia configurable en appsettings (ExpirationMinutes).
-//    /// </summary>
-    
-//    public(string Token, string Jti, DateTime Expiry) GenerateAccessToken( int userId,string username, string roleCode
-//        , string roleName,string fullName, int? branchId)
-//    {
-//        var jti = Guid.NewGuid().ToString("N");
-//        var expiry = DateTime.UtcNow.AddMinutes(_jwt.ExpirationMinutes);
-//        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret));
-//        var creds = new SigningCredentials(key,SecurityAlgorithms.HmacSha256);
-
-//        var claims = new List<Claim>
-//        {
-//            new(JwtRegisteredClaimNames.Jti, jti),
-//            new(JwtRegisteredClaimNames.Sub, userId.ToString()),
-//            new(JwtRegisteredClaimNames.Name,username),
-//            new(ClaimTypes.UserId,userId.ToString()),
-//            new(ClaimTypes.RoleCode,roleCode),
-//            new(ClaimTypes.FullName, fullName),
-//            new(System.Security.Claims.ClaimTypes.Role,roleCode),
-
-//        };
-
-//        if (branchId.HasValue)
-//            claims.Add(new(ClaimTypes.BranchId, branchId.Value.ToString()));
-
-//        var token = new JwtSecurityToken(
-//            issuer: _jwt.Issuer,
-//            audience: _jwt.Audience,
-//            claims: claims,
-//            notBefore: DateTime.UtcNow,
-//            expires: expiry,
-//            signingCredentials: creds
-//            );
-//        return (new JwtSecurityTokenHandler().WriteToken(token), jti, expiry);
-//    }
-//    /// <summary>
-//    /// Genera un Refresh Token seguro: 3 GUIDs concatenados sin guiones.
-//    /// No se firma — es opaco y se valida contra la BD.
-//    /// </summary>
-
-//    public static string GenerateRefreshToken() =>
-//        Convert.ToBase64String(RandomNumberGenerator.GetBytes(64))
-//            .Replace("+", "-")
-//            .Replace("/", "_")
-//            .TrimEnd('=');
-//    /// <summary>Hashea la contraseña con SHA-256 (compatible con el esquema existente en SystemUsers).</summary>
-
-//    public static string HashPassword(string password) =>
-//        Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(password))).ToLower();
-
-//    // ── Nota sobre hashing ──────────────────────────────────────────────────
-//    // SHA-256 plano es simple pero no tiene salt. Si en el futuro se quiere
-//    // migrar a BCrypt o PBKDF2 (recomendado), solo cambia este método y
-//    // el campo PasswordSalt ya existe en SystemUsers para soportarlo.
-//    // ────────────────────────────────────────────────────────────────────────
-
-//    public TokenValidationParameters GetValidationParameters() => new()
-//    {
-//        ValidateIssuer = true,
-//        ValidateAudience = true,
-//        ValidateLifetime = true,
-//        ValidateIssuerSigningKey = true,
-//        ValidIssuer = _jwt.Issuer,
-//        ValidAudience = _jwt.Audience,
-//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Secret)),
-//        ClockSkew = TimeSpan.FromSeconds(30),
-//    };
-//}
-
-// =============================================================================
 // LoginHandler
 // =============================================================================
 public sealed class LoginHandler(
@@ -120,8 +39,10 @@ public sealed class LoginHandler(
         // 2. Hashear contraseña y validar en BD
         //var passwordHash = itokenService.HashPassword(request.Password);
         var passwordHash = request.Password;
+        var refreshToken = itokenService.GenerateRefreshToken();   // ← genera ANTES
+        var refreshExpiry = DateTime.UtcNow.AddDays(30);
 
-        var loginResult = await repo.LoginAsync(request.Username, passwordHash, ip, userAgent, ct);
+        var loginResult = await repo.LoginAsync(request.Username, passwordHash,refreshToken, ip, userAgent, ct);
 
         if (loginResult.IsFailure)
             return loginResult.Map(_ => (LoginResponse)null!);
@@ -129,35 +50,13 @@ public sealed class LoginHandler(
         var user = loginResult.Value;
 
         // 3. Generar Access Token
+        //var (accessToken, jti, accessExpiry) = itokenService.GenerateAccessToken(
+        //    user.UserId, user.Username, user.RoleCode, user.RoleName, user.FullName, user.BranchId
+        //    );
         var (accessToken, jti, accessExpiry) = itokenService.GenerateAccessToken(
-            user.UserId, user.Username, user.RoleCode, user.RoleName, user.FullName, user.BranchId
-            );
+        user.UserId, user.Username, user.RoleCode, user.RoleName, user.FullName, user.BranchId);
 
         // 4. Guardar Refresh Token en BD
-        var refreshToken = itokenService.GenerateRefreshToken();
-        var refreshExpiry = DateTime.UtcNow.AddDays(30);
-
-        /*
-          El SP de login NO guarda el refresh token — se hace con un segundo SP call.
-          Usamos la operación implícita: el repo de tokens se invoca al hacer login.
-          Para mantener el patrón del proyecto, guardamos el refresh token via el mismo sp_Auth.
-          El insert al UserTokens ocurre en el SP durante 'refreshtoken', pero el primer token
-          se guarda directamente aquí mediante la operación 'saverefreshtoken' que es parte
-          del flujo de login en la BD — el SP 'login' no lo hace para mantener separación.
-          SOLUCIÓN PRÁCTICA: llamar al endpoint de refreshtoken con el token recién generado
-          no tiene sentido. En cambio, insertamos el refresh token directamente usando el
-          mismo repositorio pero con una operación dedicada del SP.
-         
-          El SP ya tiene 'refreshtoken' que rota. Para el LOGIN (primer token),
-          usamos una inserción directa pasando el refreshToken como parte del login response
-          y dejando que el front lo almacene. El refresh token se persiste en BD la primera
-          vez que el usuario llama a /auth/refresh.
-         
-          ALTERNATIVA IMPLEMENTADA: El SP 'login' podría guardar el refresh token también.
-          Agregamos eso al SP como una segunda operación interna. Para el proyecto actual,
-          simplificamos: el Refresh Token se inserta desde C# usando la misma conexión.
-         */
-
         log.LogInformation("Login exitoso UserId={UserId} Role={Role}", user.UserId, user.RoleCode);
 
         return Result<LoginResponse>.Success(new LoginResponse
@@ -243,7 +142,7 @@ public sealed class LogoutHandler(IAuthRepository repo, ILogger<LogoutHandler> l
     {
         // logoutAll = true → revocar todas las sesiones del usuario (por userId)
         var rtParam = logoutAll ? null : refreshToken;
-        var uidParam = logoutAll ? userId : null;
+        var uidParam = logoutAll ? null : userId;
 
         var result = await repo.LogoutAsync(rtParam, uidParam, ct);
 
@@ -278,7 +177,9 @@ public sealed class CrearUsuarioHandler(
                 new ResultError(ErrorCodes.ErrorValidacion, "Errores de validación.", 422, errors));
         }
 
-        var passwordHash = itokenService.HashPassword(request.Password);
+        //var passwordHash = itokenService.HashPassword(request.Password);
+        var passwordHash = request.Password;
+
 
         var result = await repo.CrearUsuarioAsync(new CrearUsuarioParams(
             request.Username, passwordHash, request.FullName,

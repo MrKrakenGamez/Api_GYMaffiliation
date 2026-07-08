@@ -9,7 +9,8 @@ namespace GymAffiliate.Domain.Interfaces.Repositories;
 public interface IAuthRepository
 {
     // Auth
-    Task<Result<LoginRaw>> LoginAsync(string username, string passwordHash, string? ip, string? userAgent, CancellationToken ct = default);
+    //Task<Result<LoginRaw>> LoginAsync(string username, string passwordHash, string? ip, string? userAgent, CancellationToken ct = default);
+    Task<Result<LoginRaw>> LoginAsync(string username, string passwordHash,string refreshToken, string? ip, string? userAgent, CancellationToken ct = default);
     Task<Result<RefreshTokenRaw>> RefreshTokenAsync(string refreshToken, string? ip, string? userAgent, CancellationToken ct = default);
     Task<Result> LogoutAsync(string? refreshToken, int? userId, CancellationToken ct = default);
     Task<Result> RevokeAccessTokenAsync(string jti, DateTime accessTokenExp, int? userId, string? reason, CancellationToken ct = default);

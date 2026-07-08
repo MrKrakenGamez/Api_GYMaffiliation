@@ -120,6 +120,7 @@ public record RefreshTokenRequest(
 
 public record LogoutRequest(
     string? RefreshToken,     // logout de la sesión actual
+    int? userId,
     bool LogoutAll = false); // true → cierra TODAS las sesiones del usuario
 
 public record CrearUsuarioRequest(

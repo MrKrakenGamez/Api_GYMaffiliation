@@ -28,6 +28,7 @@ public sealed class RegistrarIngresoHandler(
         int? userId, string? ip, string? session,
         CancellationToken ct = default)
     {
+
         var val = await validator.ValidateAsync(request, ct);
         if (!val.IsValid)
         {
