@@ -198,23 +198,7 @@ public sealed class AfiliadoRepository(
             var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
 
             // Si el primer RS tiene ErrorId → es el camino de error
-            //if (first is not null && first.ContainsKey("ErrorId"))
-            //{
-            //    //var errOutput = SpHelper.TryReadOutputAsync(multi);
-
-            //    var errOutput = await SpHelper.TryReadOutputAsync(multi);
-
-            //    var errRow    = new SpOutputRow(null,
-            //        first.TryGetValue("ErrorId",      out var e) && e is not null ? Convert.ToInt32(e) : null,
-            //        first.TryGetValue("ErrorMessage", out var m) && m is not null ? m.ToString()       : null,
-            //        DateTime.UtcNow);
-            //    var (eid2, emsg2) = SpHelper.GetError(errRow);
-            //    if (eid2.HasValue)
-            //        return Result<AfiliadoDetalleRaw?>.Failure(
-            //            SpErrorMapper.ToResultError(eid2.Value, emsg2 ?? "Afiliado no encontrado."));
-
-            //    return Result<AfiliadoDetalleRaw?>.Success(null);
-            //}
+            
             if (first is not null && first.ContainsKey("ErrorId"))
             {
                 var output = new SpOutputRow
@@ -637,51 +621,7 @@ public sealed class AuthRepository(
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — login
     // ─────────────────────────────────────────────────────────────────────────
-    //public async Task<Result<LoginRaw>> LoginAsync(
-    //    string username, string passwordHash, string? ip, string? userAgent,
-    //    CancellationToken ct = default)
-    //{
-    //    try
-    //    {
-    //        //var conn = await db.GetConnectionAsync(ct);
-    //        var conn = await db.ExecuteAsync(ct);
-
-    //        var prms = AuthSpParameters.Login(username, passwordHash, ip, userAgent);
-
-    //        using var multi = await conn.QueryMultipleAsync(
-    //            StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-    //        // Leer primer RS como dynamic para detectar si es error o datos
-    //        var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
-    //        var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
-
-    //        if (first is null)
-    //            return Result<LoginRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta del servidor.", 500));
-
-    //        // ¿Es una fila de error? (tiene ErrorId y Message, no UserId)
-    //        if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
-    //        {
-    //            var eid = Convert.ToInt32(first["ErrorId"]);
-    //            var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
-    //            return Result<LoginRaw>.Failure(MapAuthError(eid, msg));
-    //        }
-
-    //        // RS1 = datos del usuario → mapear
-    //        var raw = MapToLoginRaw(first);
-
-    //        // RS2 = output row (ignorar, ya tenemos éxito)
-    //        _ = await ReadOutputAsync(multi);
-
-    //        log.LogInformation("Login exitoso: User={Username} Id={UserId}", username, raw.UserId);
-    //        return Result<LoginRaw>.Success(raw);
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        log.LogError(ex, "Error en LoginAsync para {Username}", username);
-    //        return Result<LoginRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al autenticar.", 500));
-    //    }
-    //}
-
+   
     //public async Task<Result<LoginRaw>> LoginAsync(string username,string passwordHash,string? ip,string? userAgent,CancellationToken ct = default)
     public async Task<Result<LoginRaw>> LoginAsync(string username, string passwordHash, string refreshToken,string? ip, string? userAgent, CancellationToken ct = default)
     {
@@ -749,43 +689,7 @@ public sealed class AuthRepository(
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — refreshtoken
     // ─────────────────────────────────────────────────────────────────────────
-    //public async Task<Result<RefreshTokenRaw>> RefreshTokenAsync(
-    //    string refreshToken, string? ip, string? userAgent,
-    //    CancellationToken ct = default)
-    //{
-    //    try
-    //    {
-    //        var conn = await db.ExecuteAsync(ct);
-    //        var prms = AuthSpParameters.RefreshToken(refreshToken, ip, userAgent);
-
-    //        using var multi = await conn.QueryMultipleAsync(
-    //            StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-    //        var firstRows = (await multi.ReadAsync<dynamic>()).ToList();
-    //        var first = firstRows.FirstOrDefault() as IDictionary<string, object>;
-
-    //        if (first is null)
-    //            return Result<RefreshTokenRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Sin respuesta.", 500));
-
-    //        if (first.ContainsKey("ErrorId") && !first.ContainsKey("UserId"))
-    //        {
-    //            var eid = Convert.ToInt32(first["ErrorId"]);
-    //            var msg = first.TryGetValue("Message", out var m) ? m?.ToString() ?? "" : "";
-    //            return Result<RefreshTokenRaw>.Failure(MapAuthError(eid, msg));
-    //        }
-
-    //        var raw = MapToRefreshTokenRaw(first);
-    //        _ = await ReadOutputAsync(multi);
-
-    //        log.LogInformation("Refresh token rotado para UserId={UserId}", raw.UserId);
-    //        return Result<RefreshTokenRaw>.Success(raw);
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        log.LogError(ex, "Error en RefreshTokenAsync");
-    //        return Result<RefreshTokenRaw>.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al renovar token.", 500));
-    //    }
-    //}
+    
 
     public async Task<Result<RefreshTokenRaw>> RefreshTokenAsync(string refreshToken,string? ip,string? userAgent,CancellationToken ct = default)
     {
@@ -840,31 +744,7 @@ public sealed class AuthRepository(
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — logout
     // ─────────────────────────────────────────────────────────────────────────
-    //public async Task<Result> LogoutAsync(string? refreshToken, int? userId, CancellationToken ct = default)
-    //{
-    //    try
-    //    {
-    //        var conn = await db.ExecuteAsync(ct);
-    //        var prms = AuthSpParameters.Logout(refreshToken, userId);
 
-    //        using var multi = await conn.QueryMultipleAsync(
-    //            StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-    //        // RS1 = { RevokedSessions }
-    //        _ = await multi.ReadAsync<dynamic>();
-
-    //        var (eid, msg) = await ReadOutputAsync(multi);
-    //        if (eid is > 0)
-    //            return Result.Failure(MapAuthError(eid.Value, msg));
-
-    //        return Result.Success();
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        log.LogError(ex, "Error en LogoutAsync");
-    //        return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error interno al cerrar sesión.", 500));
-    //    }
-    //}
     public async Task<Result> LogoutAsync(string? refreshToken,int? userId,CancellationToken ct = default)
     {
         try
@@ -902,32 +782,7 @@ public sealed class AuthRepository(
     // ─────────────────────────────────────────────────────────────────────────
     // AUTH — revokeaccesstoken
     // ─────────────────────────────────────────────────────────────────────────
-    //public async Task<Result> RevokeAccessTokenAsync(
-    //    string jti, DateTime accessTokenExp, int? userId, string? reason,
-    //    CancellationToken ct = default)
-    //{
-    //    try
-    //    {
-    //        var conn = await db.ExecuteAsync(ct);
-    //        var prms = AuthSpParameters.RevokeAccessToken(jti, accessTokenExp, userId, reason);
-
-    //        using var multi = await conn.QueryMultipleAsync(
-    //            StoredProcedures.Auth, prms, commandType: CommandType.StoredProcedure);
-
-    //        _ = await multi.ReadAsync<dynamic>();   // RS1 = { AlreadyRevoked } o { Inserted }
-    //        var (eid, msg) = await ReadOutputAsync(multi);
-
-    //        if (eid is > 0)
-    //            return Result.Failure(MapAuthError(eid.Value, msg));
-
-    //        return Result.Success();
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        log.LogError(ex, "Error en RevokeAccessTokenAsync jti={Jti}", jti);
-    //        return Result.Failure(new ResultError(ErrorCodes.ErrorInesperado, "Error al revocar token.", 500));
-    //    }
-    //}
+    
     public async Task<Result> RevokeAccessTokenAsync(string jti,DateTime accessTokenExp,int? userId,string? reason,CancellationToken ct = default)
     {
         try
