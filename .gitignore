@@ -367,3 +367,4 @@ FodyWeavers.xsd
 .vs/
 src/Api/logs/
 src/Api/obj/Debug/
+src/Api/bin/Debug/
