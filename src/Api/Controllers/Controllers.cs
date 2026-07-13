@@ -76,8 +76,8 @@ public sealed class AfiliadosController(
         [FromBody] CrearAfiliadoRequest request,
         CancellationToken ct)
     {
-        //var result = await crearHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
-        var result = await crearHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
+        var result = await crearHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
+        //var result = await crearHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
 
         return ToAction(result);
     }
@@ -89,8 +89,8 @@ public sealed class AfiliadosController(
         [FromBody] ActualizarAfiliadoRequest request,
         CancellationToken ct)
     {
-        //var result = await actualizarHandler.HandleAsync(id, request, CurrentUserId, ClientIp, SessionId, ct);
-        var result = await actualizarHandler.HandleAsync(id, request, 1, ClientIp, SessionId, ct);
+        var result = await actualizarHandler.HandleAsync(id, request, CurrentUserId, ClientIp, SessionId, ct);
+        //var result = await actualizarHandler.HandleAsync(id, request, 1, ClientIp, SessionId, ct);
 
         return ToAction(result);
     }
@@ -102,8 +102,8 @@ public sealed class AfiliadosController(
         [FromQuery] string? notes,
         CancellationToken ct)
     {
-        //var result = await eliminarHandler.HandleAsync(id, notes, CurrentUserId, ClientIp, SessionId, ct);
-        var result = await eliminarHandler.HandleAsync(id, notes, 1, ClientIp, SessionId, ct);
+        var result = await eliminarHandler.HandleAsync(id, notes, CurrentUserId, ClientIp, SessionId, ct);
+        //var result = await eliminarHandler.HandleAsync(id, notes, 1, ClientIp, SessionId, ct);
 
         return ToAction(result);
     }
@@ -112,9 +112,9 @@ public sealed class AfiliadosController(
     [HttpGet("{id:int}")]
     public async Task<IActionResult> ObtenerPorId(int id, CancellationToken ct)
     {
-        //var result = await obtenerHandler.HandleAsync(id, null, null, CurrentUserId, ct);
+        var result = await obtenerHandler.HandleAsync(id, null, null, CurrentUserId, ct);
 
-        var result = await obtenerHandler.HandleAsync(id, null, null, 1, ct);
+        //var result = await obtenerHandler.HandleAsync(id, null, null, 1, ct);
         return ToAction(result);
     }
 
@@ -124,9 +124,9 @@ public sealed class AfiliadosController(
         [FromQuery] ListarAfiliadosRequest request,
         CancellationToken ct)
     {
-        //var result = await listarHandler.HandleAsync(request, CurrentUserId, ct);
+        var result = await listarHandler.HandleAsync(request, CurrentUserId, ct);
 
-        var result = await listarHandler.HandleAsync(request, 1, ct);
+        //var result = await listarHandler.HandleAsync(request, 1, ct);
         return ToPagedAction(result, request.PageNumber, request.PageSize);
     }
 }
@@ -146,9 +146,9 @@ public sealed class MembresiasController(
         [FromBody] AsignarMembresiaRequest request,
         CancellationToken ct)
     {
-        //var result = await asignarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
+        var result = await asignarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
 
-        var result = await asignarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
+        //var result = await asignarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
         return ToAction(result);
     }
 
@@ -158,9 +158,9 @@ public sealed class MembresiasController(
         [FromBody] RenovarMembresiaRequest request,
         CancellationToken ct)
     {
-        //var result = await renovarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
+        var result = await renovarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
 
-        var result = await renovarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
+        //var result = await renovarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
         return ToAction(result);
     }
 
@@ -170,9 +170,9 @@ public sealed class MembresiasController(
         [FromBody] CambiarPlanRequest request,
         CancellationToken ct)
     {
-        //var result = await cambiarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
+        var result = await cambiarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
 
-        var result = await cambiarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
+        //var result = await cambiarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
         return ToAction(result);
     }
 }
@@ -191,9 +191,9 @@ public sealed class PagosController(
         [FromBody] RegistrarPagoRequest request,
         CancellationToken ct)
     {
-        //var result = await registrarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
+        var result = await registrarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
 
-        var result = await registrarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
+        //var result = await registrarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
         return ToAction(result);
     }
 
@@ -206,10 +206,10 @@ public sealed class PagosController(
         [FromQuery] int? branchId,
         CancellationToken ct)
     {
-        //var result = await historialHandler.HandleAsync(
-        //    new ListarPagosRequest(afiliadoId, from, to, branchId),
-        //    CurrentUserId, ct);
-        var result = await historialHandler.HandleAsync(new ListarPagosRequest(afiliadoId, from, to, branchId),1, ct);
+        var result = await historialHandler.HandleAsync(
+            new ListarPagosRequest(afiliadoId, from, to, branchId),
+            CurrentUserId, ct);
+        //var result = await historialHandler.HandleAsync(new ListarPagosRequest(afiliadoId, from, to, branchId),1, ct);
         return ToAction(result);
     }
 }
@@ -238,9 +238,9 @@ public sealed class AccesoController(
         [FromBody] RegistrarIngresoRequest request,
         CancellationToken ct)
     {
-        //var result = await registrarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
+        var result = await registrarHandler.HandleAsync(request, CurrentUserId, ClientIp, SessionId, ct);
 
-        var result = await registrarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
+        //var result = await registrarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
         return ToAction(result);
     }
 }
@@ -259,9 +259,9 @@ public sealed class NotificacionesController(
         [FromQuery] int daysAhead = 3,
         CancellationToken ct = default)
     {
-        //var result = await vencimientosHandler.HandleAsync(daysAhead, CurrentUserId, ct);
+        var result = await vencimientosHandler.HandleAsync(daysAhead, CurrentUserId, ct);
 
-        var result = await vencimientosHandler.HandleAsync(daysAhead, 1, ct);
+        //var result = await vencimientosHandler.HandleAsync(daysAhead, 1, ct);
         return ToAction(result);
     }
 
@@ -271,9 +271,9 @@ public sealed class NotificacionesController(
         [FromBody] EnviarAlertaRequest request,
         CancellationToken ct)
     {
-        //var result = await alertaHandler.HandleAsync(request, CurrentUserId, SessionId, ct);
+        var result = await alertaHandler.HandleAsync(request, CurrentUserId, SessionId, ct);
 
-        var result = await alertaHandler.HandleAsync(request, 1, SessionId, ct);
+        //var result = await alertaHandler.HandleAsync(request, 1, SessionId, ct);
         return ToAction(result);
     }
 }
@@ -292,9 +292,9 @@ public sealed class ReportesController(
         [FromQuery] ReporteIngresosRequest request,
         CancellationToken ct)
     {
-        //var result = await ingresosHandler.HandleAsync(request, CurrentUserId, ct);
+        var result = await ingresosHandler.HandleAsync(request, CurrentUserId, ct);
 
-        var result = await ingresosHandler.HandleAsync(request, 1, ct);
+        //var result = await ingresosHandler.HandleAsync(request, 1, ct);
         return ToAction(result);
     }
 
@@ -304,9 +304,9 @@ public sealed class ReportesController(
         [FromQuery] int? branchId,
         CancellationToken ct)
     {
-        //var result = await activosHandler.HandleAsync(branchId, CurrentUserId, ct);
+        var result = await activosHandler.HandleAsync(branchId, CurrentUserId, ct);
 
-        var result = await activosHandler.HandleAsync(branchId, 1, ct);
+        //var result = await activosHandler.HandleAsync(branchId, 1, ct);
         return ToAction(result);
     }
 }

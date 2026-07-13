@@ -365,3 +365,5 @@ FodyWeavers.xsd
 #ignoraciones manuales
 # basura VS
 .vs/
+src/Api/logs/
+src/Api/obj/Debug/

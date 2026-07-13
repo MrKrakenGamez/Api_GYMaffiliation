@@ -45,7 +45,7 @@ public sealed class AuthController(
     // ── POST /api/auth/logout ────────────────────────────────────────────────
     /// <summary>Cierra la sesión actual (o todas las sesiones del usuario).</summary>
     [HttpPost("logout")]
-    //[Microsoft.AspNetCore.Authorization.Authorize]
+    [Microsoft.AspNetCore.Authorization.Authorize]
     public async Task<IActionResult> Logout(
         [FromBody] LogoutRequest request,
         CancellationToken ct)
@@ -74,7 +74,7 @@ public sealed class AuthController(
     // ── POST /api/auth/usuarios ──────────────────────────────────────────────
     /// <summary>Crea un nuevo usuario del sistema (Admin o SuperAdmin).</summary>
     [HttpPost("usuarios")]
-    //[Microsoft.AspNetCore.Authorization.Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
+    [Microsoft.AspNetCore.Authorization.Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
     public async Task<IActionResult> CrearUsuario(
         [FromBody] CrearUsuarioRequest request,
         CancellationToken ct)
@@ -82,35 +82,35 @@ public sealed class AuthController(
     {
         //if (CurrentUserId is null)
         //    return Unauthorized();
-        //var result = await crearUsuarioHandler.HandleAsync(request, CurrentUserId.Value, ct);
+        var result = await crearUsuarioHandler.HandleAsync(request, CurrentUserId.Value, ct);
         //-- quite la validacion de usuario, de momento cualquiera puede crear usuarios
-        var result = await crearUsuarioHandler.HandleAsync(request, 1, ct);
+        //var result = await crearUsuarioHandler.HandleAsync(request, 1, ct);
         return ToAction(result);
     }
 
     // ── DELETE /api/auth/usuarios/{id} ───────────────────────────────────────
     /// <summary>Da de baja lógica a un usuario del sistema.</summary>
     [HttpDelete("usuarios/{id:int}")]
-    //[Microsoft.AspNetCore.Authorization.Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
+    [Microsoft.AspNetCore.Authorization.Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
     public async Task<IActionResult> DarDeBaja(
         int id,
         [FromBody] DarDeBajaRequest request,
         CancellationToken ct)
     {
-        //if (CurrentUserId is null) return Unauthorized();
+        if (CurrentUserId is null) return Unauthorized();
 
         // Asegurar que el UserId del body coincide con la ruta
         var req = request with { UserId = id };
-        //var result = await darDeBajaHandler.HandleAsync(req, CurrentUserId.Value, ct);
+        var result = await darDeBajaHandler.HandleAsync(req, CurrentUserId.Value, ct);
 
-        var result = await darDeBajaHandler.HandleAsync(req, 1, ct);
+        //var result = await darDeBajaHandler.HandleAsync(req, 1, ct);
         return ToAction(result);
     }
 
     // ── GET /api/auth/usuarios/{id} ──────────────────────────────────────────
     /// <summary>Obtiene los datos de un usuario del sistema por Id.</summary>
     [HttpGet("usuarios/{id:int}")]
-    //[Microsoft.AspNetCore.Authorization.Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
+    [Microsoft.AspNetCore.Authorization.Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
     public async Task<IActionResult> ObtenerUsuario(int id, CancellationToken ct)
     {
         var result = await obtenerHandler.HandleAsync(id, null, ct);
@@ -122,7 +122,7 @@ public sealed class AuthController(
     // ── GET /api/auth/usuarios ───────────────────────────────────────────────
     /// <summary>Lista paginada de usuarios del sistema.</summary>
     [HttpGet("usuarios")]
-    //[Microsoft.AspNetCore.Authorization.Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
+    [Microsoft.AspNetCore.Authorization.Authorize(Roles = $"{Roles.SuperAdmin},{Roles.Admin}")]
     public async Task<IActionResult> ListarUsuarios(
         [FromQuery] ListarUsuariosRequest request,
         CancellationToken ct)
@@ -134,7 +134,7 @@ public sealed class AuthController(
     // ── POST /api/auth/mantenimiento/purgar-tokens ───────────────────────────
     /// <summary>Purga lógica de tokens expirados. Solo SuperAdmin.</summary>
     [HttpPost("mantenimiento/purgar-tokens")]
-    //[Microsoft.AspNetCore.Authorization.Authorize(Roles = Roles.SuperAdmin)]
+    [Microsoft.AspNetCore.Authorization.Authorize(Roles = Roles.SuperAdmin)]
     public async Task<IActionResult> PurgarTokens(CancellationToken ct)
     {
         var result = await purgarHandler.HandleAsync(ct);
