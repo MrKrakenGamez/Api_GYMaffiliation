@@ -5,7 +5,8 @@ namespace GymAffiliate.Application.Validations;
 
 public class CrearAfiliadoValidator : AbstractValidator<CrearAfiliadoRequest>
 {
-    private static readonly string[] TiposDocumento = ["DNI", "PASSPORT", "OTHER"];
+    //private static readonly string[] TiposDocumento = ["DNI", "PASSPORT", "OTHER","INE"];
+    private static readonly string[] TiposDocumento = ["DNI", "PASAPORTE", "CEDULA", "INE"];
 
     public CrearAfiliadoValidator()
     {

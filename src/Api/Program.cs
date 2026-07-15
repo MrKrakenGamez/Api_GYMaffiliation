@@ -126,8 +126,7 @@ try
     // ── Middleware pipeline ───────────────────────────────────────────────────
 
     // 1. Global exception handler (siempre primero)
-    //app.UseMiddleware<GlobalExceptionMiddleware>();
-    app.UseMiddleware<JwtBlacklistMiddleware>();
+    app.UseMiddleware<GlobalExceptionMiddleware>();
 
     // 2. Swagger (solo en Development)
     if (app.Environment.IsDevelopment())
@@ -162,7 +161,7 @@ try
 
     // 6. Auth (orden importa: primero Authentication, luego Authorization)
     app.UseAuthentication();
-    //app.UseMiddleware<JwtBlacklistMiddleware>();   // ← DESPUÉS de Authentication
+    app.UseMiddleware<JwtBlacklistMiddleware>();   // ← DESPUÉS de Authentication
     app.UseAuthorization();
 
 
