@@ -6,6 +6,7 @@ using GymAffiliate.Infrastructure.Persistence.Dapper.Parameters;
 using GymAffiliate.Shared.Constants;
 using GymAffiliate.Shared.Errors;
 using GymAffiliate.Shared.Result;
+using Microsoft.AspNetCore.Connections;
 using Microsoft.Extensions.Logging;
 
 namespace GymAffiliate.Infrastructure.Persistence.Repositories;
@@ -353,6 +354,26 @@ public sealed class MembresiaRepository(
                 StoredProcedures.Memberships, prm, commandType: CommandType.StoredProcedure);
             return Result<ValidacionAccesoRaw?>.Success(row);
         }, ct);
+
+    public async Task<Result<IEnumerable<MembershipTypeRaw>>> ListarTiposAsync(CancellationToken ct = default) =>
+        await db.ExecuteAsync(async conn =>
+        {
+            //var row = await conn.QueryFirstOrDefaultAsync<MembershipTypeRaw>(
+            //    StoredProcedures.MembershipTypes, commandType: CommandType.StoredProcedure
+            //    );
+            List<MembershipTypeRaw> row = (await conn.QueryAsync<MembershipTypeRaw>(
+            StoredProcedures.MembershipTypes,commandType: CommandType.StoredProcedure)).ToList();
+
+            return Result<IEnumerable<MembershipTypeRaw>>.Success(row);
+
+
+            //var roww = (await conn.QueryAsync<MembershipTypeRaw>(
+            //    StoredProcedures.MembershipTypes, CommandType: CommandType.StoredProcedure
+            //    )).ToList();
+            //return Result<IEnumerable<MembershipTypeRaw>>.Success(row);
+        }, ct
+        );
+
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

@@ -9,8 +9,9 @@ public static class StoredProcedures
     public const string Notifications = "sp_Notifications";
     public const string Branches      = "sp_Branches";
     public const string Reports       = "sp_Reports";
-    public const string Auth          = "sp_Auth";          // ← NUEVO
-}
+    public const string Auth          = "sp_Auth";
+    public const string MembershipTypes = "sp_MembershipTypes_Listar";
+ }
 
 public static class Roles
 {
@@ -18,7 +19,7 @@ public static class Roles
     public const string Admin      = "ADMIN";
     public const string Reception  = "RECEPTION";
     public const string ReadOnly   = "READONLY";
-    public const string Trainer    = "TRAINER";             // ← NUEVO
+    public const string Trainer    = "TRAINER"; 
 
 }
 
@@ -27,7 +28,7 @@ public static class Policies
     public const string AdminOnly        = "AdminOnly";
     public const string ReceptionOrAdmin = "ReceptionOrAdmin";
     public const string AnyRole          = "AnyRole";
-    public const string SuperAdminOnly = "SuperAdminOnly";    // ← NUEVO
+    public const string SuperAdminOnly = "SuperAdminOnly"; 
 
 }
 public static class ClaimTypes
@@ -38,3 +39,5 @@ public static class ClaimTypes
     public const string BranchId = "branchId";
     public const string FullName = "fullName";
 }
+
+

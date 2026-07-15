@@ -372,3 +372,7 @@ src/Application/bin/Debug/
 src/Application/obj/Debug/
 src/Infrastructure/bin/Debug/
 src/Infrastructure/obj/Debug/
+src/Domain/bin/Debug/
+src/Domain/obj/Debug/
+src/Shared/bin/Debug/
+src/Shared/obj/Debug/

@@ -36,6 +36,7 @@ public static class ApplicationExtensions
         services.AddTransient<AsignarMembresiaHandler>();
         services.AddTransient<RenovarMembresiaHandler>();
         services.AddTransient<CambiarPlanHandler>();
+        services.AddTransient<ListarTiposMembresiaHandler>(); 
 
         services.AddTransient<RegistrarPagoHandler>();
         services.AddTransient<HistorialPagosHandler>();
@@ -64,6 +65,8 @@ public static class ApplicationExtensions
         services.AddTransient<IValidator<RefreshTokenRequest>, RefreshTokenRequestValidator>();
         services.AddTransient<IValidator<CrearUsuarioRequest>, CrearUsuarioRequestValidator>();
         services.AddTransient<IValidator<DarDeBajaRequest>, DarDeBajaRequestValidator>();
+
+
 
         return services;
     }

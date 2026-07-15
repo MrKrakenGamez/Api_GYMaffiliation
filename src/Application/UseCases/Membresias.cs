@@ -133,3 +133,29 @@ public sealed class CambiarPlanHandler(IMembresiaRepository repo, IValidator<Cam
     }
 }
 
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ListarTiposMembresiaHandler
+// ─────────────────────────────────────────────────────────────────────────────
+public sealed class ListarTiposMembresiaHandler(IMembresiaRepository repo)
+{
+    public async Task<Result<IEnumerable<MembershipTypeResponse>>> HandleAsync(CancellationToken ct = default)
+    {
+        var result = await repo.ListarTiposAsync(ct);
+        if (!result.IsSuccess)
+            return Result<IEnumerable<MembershipTypeResponse>>.Failure(result.Error!);
+
+        var mapped = result.Value!.Select(r => new MembershipTypeResponse
+        {
+            MembershipTypeId = r.MembershipTypeId,
+            Code = r.Code,
+            Name = r.Name,
+            DurationDays = r.DurationDays,
+            Price = r.Price,
+            AccessScope = r.AccessScope,
+        });
+
+        return Result<IEnumerable<MembershipTypeResponse>>.Success(mapped);
+    }
+}
+

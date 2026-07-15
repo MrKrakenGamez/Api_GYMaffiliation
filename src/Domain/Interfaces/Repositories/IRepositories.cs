@@ -42,6 +42,8 @@ public interface IMembresiaRepository
     Task<Result<int>> CambiarPlanAsync(CambiarPlanParams p, CancellationToken ct = default);
     Task<Result> CancelarAsync(int? membershipId, int? affiliateId, string? notes, int? userId, CancellationToken ct = default);
     Task<Result<ValidacionAccesoRaw?>> ValidarActivaAsync(int affiliateId, CancellationToken ct = default);
+    Task<Result<IEnumerable<MembershipTypeRaw>>> ListarTiposAsync(CancellationToken ct = default); // ← NUEVO
+
 }
 
 public interface IPagoRepository
@@ -394,4 +396,15 @@ public class PurgaTokensRaw
     public int PurgedAccessTokens { get; set; }
     public DateTime ExecutedAt { get; set; }
     public DateTime CutoffDate { get; set; }
+}
+
+// mebership types
+public class MembershipTypeRaw
+{
+    public int MembershipTypeId { get; set; }
+    public string Code { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public int DurationDays { get; set; }
+    public decimal Price { get; set; }
+    public string? AccessScope { get; set; }
 }

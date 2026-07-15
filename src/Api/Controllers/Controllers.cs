@@ -138,7 +138,8 @@ public sealed class AfiliadosController(
 public sealed class MembresiasController(
     AsignarMembresiaHandler asignarHandler,
     RenovarMembresiaHandler renovarHandler,
-    CambiarPlanHandler      cambiarHandler) : GymBaseController
+    CambiarPlanHandler      cambiarHandler,
+    ListarTiposMembresiaHandler tiposHandler) : GymBaseController
 {
     // POST /api/membresias/asignar
     [HttpPost("asignar")]
@@ -175,6 +176,15 @@ public sealed class MembresiasController(
         //var result = await cambiarHandler.HandleAsync(request, 1, ClientIp, SessionId, ct);
         return ToAction(result);
     }
+
+    // GET /api/membresias/tipos
+    [HttpGet("tipos")]
+    public async Task<IActionResult> Tipos(CancellationToken ct)
+    {
+        var result = await tiposHandler.HandleAsync(ct);
+        return ToAction(result);
+    }
+
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

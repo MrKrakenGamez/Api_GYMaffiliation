@@ -291,3 +291,14 @@ public class PurgaTokensResponse
     public DateTime ExecutedAt { get; set; }
     public DateTime CutoffDate { get; set; }
 }
+
+// MembershipTypeResponse List
+public class MembershipTypeResponse
+{
+    public int MembershipTypeId { get; set; }
+    public string Code { get; set; } = string.Empty;
+    public string Name { get; set; } = string.Empty;
+    public int DurationDays { get; set; }
+    public decimal Price { get; set; }
+    public string? AccessScope { get; set; }
+}
